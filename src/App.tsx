@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Csoki from "./components/Csoki";
 
-const App = () => {
+const App: React.FC = () => {
+  const [time, setTime] = useState(0);
+  const [photo, setPhoto] = useState("");
+  const [kakao, setCsoki] = useState("csokii");
+
+  const fetchCsoki = () => {};
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>{time}</p>
+      <input></input>
+      <button onClick={() => setTime(time + 14)}></button>
+      <button onClick={() => setCsoki("csoki2")}>Csokisetter</button>
+      <Csoki csoki={kakao} />
     </div>
   );
-}
+};
 
 export default App;
