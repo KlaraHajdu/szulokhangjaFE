@@ -17,13 +17,13 @@ const TeacherPosts: React.FC<Props> = () => {
   useEffect(() => {
     const fetch = (): void => {
       apiGet(
-        teacherRecPostsRoute + "listall",
+        teacherSalPostsRoute + "listall",
         (jsonresponse: TeacherSalary[]) => {
           setteacherSalaries(jsonresponse);
         }
       );
       apiGet(
-        teacherSalPostsRoute + "listall",
+        teacherRecPostsRoute + "listall",
         (jsonresponse: TeacherRecommendation[]) => {
           setteacherRecommendations(jsonresponse);
         }
