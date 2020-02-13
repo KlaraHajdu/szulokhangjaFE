@@ -8,21 +8,18 @@ interface Props {
 
 const TeacherSalaryTile: React.FC<Props> = ({ post }) => {
   return (
-    <div className="tile is-parent box notification is-size-7">
-      <div className="tile is-child">
+    <div className="tile is-parent box  is-size-7">
+      <div className="tile is-1 is-child">
         <p>{post.name}</p>
       </div>
-      <div className="tile is-child">
+      <div className="tile is-child is-3">
         <p>{post.workload}</p>
       </div>
-      <div className="tile is-child">
+      <div className="tile is-child is-4 has-text-left">
         <p>{post.experience}</p>
       </div>
-      <div className="tile is-child">
-        <p>{post.salary}</p>
-      </div>
-      <div className="tile is-child">
-        <p>{formatTimeStamp(post.submissionDate).format("YYYY.MM.DD")}</p>
+      <div className="tile is-3 is-child has-text-centered">
+        <p>{post.salary} HUF</p>
       </div>
     </div>
   );

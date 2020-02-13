@@ -8,14 +8,14 @@ interface Props {
 
 const TeacherRecommendationTile: React.FC<Props> = ({ post }) => {
   return (
-    <div className="tile is-parent box notification is-size-7">
-      <div className="tile is-child">
+    <div className="tile is-parent box  is-size-7">
+      <div className="tile is-2 is-child">
         <p>{post.name}</p>
       </div>
-      <div className="tile is-child">
+      <div className="tile is-6 is-child">
         <p>{post.recommendation}</p>
       </div>
-      <div className="tile is-child">
+      <div className="tile is-1 is-child">
         <p>{post.location}</p>
       </div>
       <div className="tile is-child">

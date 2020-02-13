@@ -6,7 +6,7 @@ interface Props {}
 
 const IndexBody: React.FC<Props> = () => {
   return (
-    <div className="container">
+    <div className="container box">
       <div className="tile is-ancestor">
         <ParentPosts />
         <TeacherPosts />

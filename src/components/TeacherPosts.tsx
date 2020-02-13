@@ -35,7 +35,7 @@ const TeacherPosts: React.FC<Props> = () => {
   return (
     <div className="tile is-parent is-vertical">
       <TitleTile title="Tanárok" />
-      <div className="tile is-parent box">
+      <div className="tile is-parent">
         <div className="tile is-child">
           <TitleTile title="Fizetés" />
           {teacherSalaries &&

@@ -20,9 +20,9 @@ const ParentPosts: React.FC<Props> = () => {
   }, []);
 
   return (
-    <div className="tile is-parent is-vertical">
+    <div className="tile is-4 is-parent is-vertical">
       <TitleTile title="Szülők" />
-      <div className="tile is-child box">
+      <div className="tile is-child">
         {parentPosts &&
           parentPosts.map((parentPost: ParentPost) => {
             return <ParentPostTile key={parentPost.id} post={parentPost} />;

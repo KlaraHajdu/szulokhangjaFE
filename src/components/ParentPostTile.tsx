@@ -8,7 +8,7 @@ interface Props {
 
 const ParentPostTile: React.FC<Props> = ({ post }) => {
   return (
-    <div className="tile is-parent box notification is-size-7">
+    <div className="tile is-parent box  is-size-7">
       <div className="tile is-child">
         <p>{post.message}</p>
       </div>
