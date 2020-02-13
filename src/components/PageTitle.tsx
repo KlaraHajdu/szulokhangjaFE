@@ -6,19 +6,21 @@ interface Props {}
 function PageTitle(): ReactElement {
   return (
     <section className="hero is-small is-warning is-bold">
+      <div className="hero-head">
+        <nav className="navbar">
+          <div className="navbar-end">
+            <span>
+              <img
+                src={require("../logo2.png")}
+                className="image is-64x64"
+                alt="logo"
+              />
+            </span>
+          </div>
+        </nav>
+      </div>
+
       <div className="hero-body">
-        <img
-          src={require("../logo2.png")}
-          className="App-logo"
-          alt="logo"
-          style={{
-            width: 100,
-            height: 100,
-            position: "absolute",
-            right: 60,
-            top: 10
-          }}
-        />
         <div className="container">
           <h1 className="title">Szülők hangja</h1>
           <p>{"\n"}</p>
