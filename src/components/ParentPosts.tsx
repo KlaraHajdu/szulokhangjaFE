@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { apiGet, parentPostsRoute } from "../static/util/util";
 import { ParentPost } from "../static/util/dataInterfaces";
-import GenericPostTile from "./ParentPostTile";
 import TitleTile from "./TitleTile";
 import ParentPostTile from "./ParentPostTile";
 

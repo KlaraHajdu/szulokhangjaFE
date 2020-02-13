@@ -1,6 +1,5 @@
 import React from "react";
 import { TeacherSalary } from "../static/util/dataInterfaces";
-import { formatTimeStamp } from "../static/util/util";
 
 interface Props {
   post: TeacherSalary;
