@@ -1,5 +1,5 @@
 import React, { useRef, useContext, useState } from "react";
-import { apiPost, teacherPostsRoute } from "../static/util/util";
+import { apiPost, teacherRecPostsRoute } from "../static/util/util";
 import { TeacherRecommendation } from "../static/util/dataInterfaces";
 import { Link } from "react-router-dom";
 import { TeacherRecommendationContext } from "./TeacherRecommendationProvider";
@@ -13,7 +13,7 @@ const TeacherRecommendationForm: React.FC = () => {
 
   const sendFormData = (data: TeacherRecommendation): void => {
     apiPost(
-      teacherPostsRoute + "add",
+      teacherRecPostsRoute + "add",
       data,
       (response: TeacherRecommendation) => {
         //   setTeacherRecommendations((previousPosts: TeacherRecommendation[]) => [
