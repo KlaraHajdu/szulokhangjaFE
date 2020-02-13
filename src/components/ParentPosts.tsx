@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { apiGet, parentPostsRoute } from "../static/util/util";
 import { ParentPost } from "../static/util/dataInterfaces";
 import GenericPostTile from "./ParentPostTile";
+import TitleTile from "./TitleTile";
+import ParentPostTile from "./ParentPostTile";
 
 interface Props {}
 
@@ -18,11 +20,14 @@ const ParentPosts: React.FC<Props> = () => {
   }, []);
 
   return (
-    <div className="tile is-parent is-vertical box">
-      {parentPosts &&
-        parentPosts.map((parentPost: ParentPost) => {
-          return <GenericPostTile key={parentPost.id} post={parentPost} />;
-        })}
+    <div className="tile is-parent is-vertical">
+      <TitleTile title="Szülők" />
+      <div className="tile is-child box">
+        {parentPosts &&
+          parentPosts.map((parentPost: ParentPost) => {
+            return <ParentPostTile key={parentPost.id} post={parentPost} />;
+          })}
+      </div>
     </div>
   );
 };

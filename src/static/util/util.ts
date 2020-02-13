@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export function apiPost(url: string, data: any, callback: any): void {
   fetch(url, {
     method: "POST",
@@ -21,6 +23,10 @@ export function apiGet(url: string, callback: any): void {
     .then(jsonresponse => {
       callback(jsonresponse);
     });
+}
+
+export function formatTimeStamp(timeStamp: string) {
+  return moment(timeStamp);
 }
 
 export const parentPostsRoute: string = "http://localhost:60680/api/parent/";
