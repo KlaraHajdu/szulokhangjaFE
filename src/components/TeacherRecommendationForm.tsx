@@ -7,6 +7,7 @@ import { TeacherRecommendationContext } from "./TeacherRecommendationProvider";
 const TeacherRecommendationForm: React.FC = () => {
   const [message, setMeassage] = useState();
   const [name, setName] = useState();
+  const [location, setLocation] = useState();
   // const [teacherRecommendations, setTeacherRecommendations] = useContext(
   //   TeacherRecommendationContext
   // );
@@ -29,7 +30,7 @@ const TeacherRecommendationForm: React.FC = () => {
     let teacherRecommendation = {
       name: name,
       recommendation: message,
-      location: "Budapest"
+      location: location
     };
 
     return teacherRecommendation;
@@ -41,6 +42,10 @@ const TeacherRecommendationForm: React.FC = () => {
 
   const updateName = (e: any) => {
     setName(e.target.value);
+  };
+
+  const updateLocation = (e: any) => {
+    setLocation(e.target.value);
   };
 
   return (
@@ -57,6 +62,12 @@ const TeacherRecommendationForm: React.FC = () => {
           onChange={updateMessage}
           style={{ width: "100%" }}
           name="message"
+        ></textarea>
+        <p> Varos </p>
+        <textarea
+          onChange={updateLocation}
+          style={{ width: "100%" }}
+          name="location"
         ></textarea>
         <div>
           <Link to="/">

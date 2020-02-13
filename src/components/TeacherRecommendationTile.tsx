@@ -20,6 +20,7 @@ const TeacherRecommendationTile: React.FC<Props> = ({ post }) => {
           <p>{formatTimeStamp(post.submissionDate).format("YYYY.MM.DD")}</p>
         </div>
       </div>
+
       <div className="tile is-parent  is-size-7">
         <div className="tile is-child">
           <p>{post.name}</p>
