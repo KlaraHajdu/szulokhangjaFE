@@ -12,7 +12,7 @@ const ParentPosts: React.FC<Props> = () => {
 
   useEffect(() => {
     const fetch = (): void => {
-      apiGet(parentPostsRoute + "all", (jsonResponse: any) => {
+      apiGet(parentPostsRoute + "listall", (jsonResponse: any) => {
         setParentPosts(jsonResponse);
       });
     };

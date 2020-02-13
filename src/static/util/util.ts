@@ -30,4 +30,5 @@ export function formatTimeStamp(timeStamp: string) {
 }
 
 export const parentPostsRoute: string = "http://localhost:60680/api/parent/";
-export const teacherPostsRoute: string = "http://localhost:60680/api/teacher/";
+export const teacherRecPostsRoute: string = "http://localhost:60680/api/teacherrec/";
+export const teacherSalPostsRoute: string = "http://localhost:60680/api/teachersal/";

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { apiGet, teacherPostsRoute } from "../static/util/util";
+import { apiGet, teacherRecPostsRoute,teacherSalPostsRoute } from "../static/util/util";
 import {
   TeacherSalary,
   TeacherRecommendation
@@ -17,13 +17,13 @@ const TeacherPosts: React.FC<Props> = () => {
   useEffect(() => {
     const fetch = (): void => {
       apiGet(
-        teacherPostsRoute + "salariesall",
+        teacherRecPostsRoute + "listall",
         (jsonresponse: TeacherSalary[]) => {
           setteacherSalaries(jsonresponse);
         }
       );
       apiGet(
-        teacherPostsRoute + "recommendationall",
+        teacherSalPostsRoute + "listall",
         (jsonresponse: TeacherRecommendation[]) => {
           setteacherRecommendations(jsonresponse);
         }
