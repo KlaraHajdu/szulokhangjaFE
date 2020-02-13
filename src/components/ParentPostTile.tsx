@@ -5,7 +5,7 @@ interface Props {
   post: ParentPost;
 }
 
-const GenericPostTile: React.FC<Props> = ({ post }) => {
+const ParentPostTile: React.FC<Props> = ({ post }) => {
   return (
     <div className="tile is-parent box notification">
       <div className="tile is-child">
@@ -21,4 +21,4 @@ const GenericPostTile: React.FC<Props> = ({ post }) => {
   );
 };
 
-export default GenericPostTile;
+export default ParentPostTile;

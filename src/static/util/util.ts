@@ -24,3 +24,4 @@ export function apiGet(url: string, callback: any): void {
 }
 
 export const parentPostsRoute: string = "http://localhost:60680/api/parent/";
+export const teacherPostsRoute: string = "http://localhost:60680/api/teacher/";
