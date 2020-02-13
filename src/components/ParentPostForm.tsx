@@ -1,12 +1,12 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef, useContext, useState } from "react";
 import { apiPost, parentPostsRoute } from "../static/util/util";
 import { ParentPost } from "../static/util/dataInterfaces";
 import { Link } from "react-router-dom";
 import { ParentPostContext } from "./ParentPostProvider";
 
 const ParentPostForm: React.FC = () => {
-  const postMessage = useRef<HTMLTextAreaElement | null>(null);
-  const messageType = useRef<HTMLSelectElement | null>(null);
+  const [message, setMeassage] = useState();
+  const [postType, setPostType] = useState();
   const [parentPosts, setParentPosts] = useContext(ParentPostContext);
 
   const sendFormData = (data: ParentPost): void => {
@@ -20,31 +20,27 @@ const ParentPostForm: React.FC = () => {
 
   const createNewParentPost = (): any => {
     let parentPost = {
-      message: "",
+      message: message,
       positiveMessage: true,
-      commentType: "",
-      location: ""
+      commentType: postType,
+      location: "Zala"
     };
 
-    if (
-      postMessage &&
-      postMessage.current &&
-      messageType &&
-      messageType.current
-    ) {
-      parentPost.message = postMessage.current.value;
-      parentPost.commentType = messageType.current.value;
-      parentPost.location = "Zala";
+    return parentPost;
+  };
 
-      return parentPost;
-    }
-    return;
+  const updateMessage = (e: any) => {
+    setMeassage(e.target.value);
+  };
+
+  const updatePostType = (e: any) => {
+    setPostType(e.target.value);
   };
 
   return (
     <div className="container-fluid" style={{ margin: 20, padding: 30 }}>
       <div className="box">
-        <select ref={messageType}>
+        <select onChange={updatePostType}>
           <option value="Personal" selected>
             Személyi feltételekről szeretnék írni
           </option>
@@ -52,7 +48,7 @@ const ParentPostForm: React.FC = () => {
         </select>
         <p>Vélemény </p>
         <textarea
-          ref={postMessage}
+          onChange={updateMessage}
           style={{ width: "100%" }}
           name="message"
         ></textarea>
