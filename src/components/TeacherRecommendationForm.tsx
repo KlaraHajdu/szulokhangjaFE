@@ -52,7 +52,7 @@ const TeacherRecommendationForm: React.FC = () => {
           style={{ width: "30%" }}
           name="Name"
         ></textarea>
-        <p>Javaslat </p>
+        <p> Javaslat </p>
         <textarea
           onChange={updateMessage}
           style={{ width: "100%" }}
