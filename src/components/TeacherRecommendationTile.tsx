@@ -15,7 +15,7 @@ const TeacherRecommendationTile: React.FC<Props> = ({ post }) => {
       <div className="tile is-6 is-child">
         <p>{post.recommendation}</p>
       </div>
-      <div className="tile is-1 is-child">
+      <div className="tile is-2 is-child">
         <p>{post.location}</p>
       </div>
       <div className="tile is-child">
