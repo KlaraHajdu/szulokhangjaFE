@@ -3,7 +3,9 @@ import PageTitle from "./components/PageTitle";
 import IndexBody from "./components/IndexBody";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ParentPostForm from "./components/ParentPostForm";
+import TeacherRecommendationForm from "./components/TeacherRecommendationForm";
 import { ParentPostProvider } from "./components/ParentPostProvider";
+import { TeacherRecommendationProvider } from "./components/TeacherRecommendationProvider";
 
 const App: React.FC = () => {
   return (
@@ -14,7 +16,7 @@ const App: React.FC = () => {
           <Switch>
             <Route path="/" exact component={IndexBody} />
             <Route path="/parent-post" exact component={ParentPostForm} />
-            <Route path="/teacher-post" />
+            <Route path="/teacher-post" exact component={TeacherRecommendationForm}/>
           </Switch>
         </ParentPostProvider>
       </div>
