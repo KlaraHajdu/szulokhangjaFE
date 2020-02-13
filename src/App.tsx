@@ -1,10 +1,14 @@
 import React from "react";
 import PageTitle from "./components/PageTitle";
+import Parent from "./components/Parent";
+import ParentPostForm from "./components/ParentPostForm"
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <PageTitle />
+      <Parent/>
+      <ParentPostForm/>
     </div>
   );
 };
