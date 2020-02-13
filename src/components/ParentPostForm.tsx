@@ -1,14 +1,20 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import { apiPost, parentPostsRoute } from "../static/util/util";
 import { ParentPost } from "../static/util/dataInterfaces";
+import { Link } from "react-router-dom";
+import { ParentPostContext } from "./ParentPostProvider";
 
 const ParentPostForm: React.FC = () => {
   const postMessage = useRef<HTMLTextAreaElement | null>(null);
   const messageType = useRef<HTMLSelectElement | null>(null);
+  const [parentPosts, setParentPosts] = useContext(ParentPostContext);
 
   const sendFormData = (data: ParentPost): void => {
     apiPost(parentPostsRoute + "add", data, (response: ParentPost) => {
-      console.log(response);
+      setParentPosts((previousPosts: ParentPost[]) => [
+        ...previousPosts,
+        response
+      ]);
     });
   };
 
@@ -51,12 +57,14 @@ const ParentPostForm: React.FC = () => {
           name="message"
         ></textarea>
         <div>
-          <button
-            className="button is-info"
-            onClick={() => sendFormData(createNewParentPost())}
-          >
-            Elküldöm
-          </button>
+          <Link to="/">
+            <button
+              className="button is-info"
+              onClick={() => sendFormData(createNewParentPost())}
+            >
+              Elküldöm
+            </button>
+          </Link>
         </div>
       </div>
     </div>

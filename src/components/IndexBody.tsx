@@ -1,5 +1,6 @@
 import React from "react";
-import ParentPostForm from "./ParentPostForm";
+import ParentPosts from "./ParentPosts";
+import TeacherPosts from "./TeacherPosts";
 
 interface Props {}
 
@@ -7,7 +8,8 @@ const IndexBody: React.FC<Props> = () => {
   return (
     <div className="container box">
       <div className="tile is-ancestor">
-        <ParentPostForm />
+        <ParentPosts />
+        <TeacherPosts />
       </div>
     </div>
   );
