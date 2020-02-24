@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 interface Props {}
 
-const Parent: React.FC = () => {
+function Parent(): ReactElement {
   return (
     <div className="container is-fluid" style={{ margin: 20, padding: 30 }}>
       <div className="box">
@@ -17,6 +17,6 @@ const Parent: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Parent;
