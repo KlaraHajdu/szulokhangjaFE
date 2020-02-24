@@ -1,0 +1,71 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Békés",
+                "megyeszékhely": "Békéscsaba"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [21.056577682495117, 46.738712310791016]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Békés",
+                "megyeszékhely": "Békéscsaba"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [21.056577682495117, 46.738712310791016]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Békés",
+                "megyeszékhely": "Békéscsaba"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [21.056577682495117, 46.738712310791016]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Békés",
+                "megyeszékhely": "Békéscsaba"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [21.056577682495117, 46.738712310791016]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Békés",
+                "megyeszékhely": "Békéscsaba"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [21.056577682495117, 46.738712310791016]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Békés",
+                "megyeszékhely": "Békéscsaba"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [21.056577682495117, 46.738712310791016]
+            }
+        }
+    ]
+}

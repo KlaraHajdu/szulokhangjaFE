@@ -8,29 +8,29 @@ import { ParentPostContext } from "./ParentPostProvider";
 interface Props {}
 
 const ParentPosts: React.FC<Props> = () => {
-  const [parentPosts, setParentPosts] = useContext(ParentPostContext);
+    const [parentPosts, setParentPosts] = useContext(ParentPostContext);
 
-  useEffect(() => {
-    const fetch = (): void => {
-      apiGet(parentPostsRoute + "listall", (jsonResponse: any) => {
-        setParentPosts(jsonResponse);
-      });
-    };
-    fetch();
-  }, [setParentPosts]);
+    useEffect(() => {
+        const fetch = (): void => {
+            apiGet(parentPostsRoute + "listall", (jsonResponse: any) => {
+                setParentPosts(jsonResponse);
+            });
+        };
+        fetch();
+    }, [parentPosts]);
 
-  return (
-    <div className="tile is-4 is-parent is-vertical">
-      <TitleTile title="Szülők mondták" />
-      <div className="tile is-child">
-        <TitleTile title="Észrevételek" />
-        {parentPosts &&
-          parentPosts.map((parentPost: ParentPost) => {
-            return <ParentPostTile key={parentPost.id} post={parentPost} />;
-          })}
-      </div>
-    </div>
-  );
+    return (
+        <div className="tile is-4 is-parent is-vertical">
+            <TitleTile title="Szülők mondták" />
+            <div className="tile is-child">
+                <TitleTile title="Észrevételek" />
+                {parentPosts &&
+                    parentPosts.map((parentPost: ParentPost) => {
+                        return <ParentPostTile key={parentPost.id} post={parentPost} />;
+                    })}
+            </div>
+        </div>
+    );
 };
 
 export default ParentPosts;

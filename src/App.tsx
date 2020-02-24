@@ -5,26 +5,24 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ParentPostForm from "./components/ParentPostForm";
 import TeacherRecommendationForm from "./components/TeacherRecommendationForm";
 import { ParentPostProvider } from "./components/ParentPostProvider";
+import HungaryCountyMap from "./components/HungaryCountyMap";
 
 const App: React.FC = () => {
-  return (
-    <Router>
-      <div className="App">
-        <ParentPostProvider>
-          <PageTitle />
-          <Switch>
-            <Route path="/" exact component={IndexBody} />
-            <Route path="/parent-post" exact component={ParentPostForm} />
-            <Route
-              path="/teacher-post"
-              exact
-              component={TeacherRecommendationForm}
-            />
-          </Switch>
-        </ParentPostProvider>
-      </div>
-    </Router>
-  );
+    return (
+        <Router>
+            <div className="App">
+                <ParentPostProvider>
+                    <PageTitle />
+                    <Switch>
+                        <Route path="/" exact component={IndexBody} />
+                        <Route path="/parent-post" exact component={ParentPostForm} />
+                        <Route path="/teacher-post" exact component={TeacherRecommendationForm} />
+                        <Route path="/county-map" exact component={HungaryCountyMap} />
+                    </Switch>
+                </ParentPostProvider>
+            </div>
+        </Router>
+    );
 };
 
 export default App;
