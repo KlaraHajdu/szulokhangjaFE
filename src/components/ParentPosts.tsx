@@ -1,27 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { apiGet, parentPostsRoute } from "../static/util/util";
 import { ParentPost } from "../static/util/dataInterfaces";
 import TitleTile from "./TitleTile";
 import ParentPostTile from "./ParentPostTile";
+import { ParentPostContext } from "./ParentPostProvider";
 
 interface Props {}
 
 const ParentPosts: React.FC<Props> = () => {
-  const [parentPosts, setParentPosts] = useState();
+  const [parentPosts, setParentPosts] = useContext(ParentPostContext);
 
   useEffect(() => {
     const fetch = (): void => {
-      apiGet(parentPostsRoute + "all", (jsonResponse: any) => {
+      apiGet(parentPostsRoute + "listall", (jsonResponse: any) => {
         setParentPosts(jsonResponse);
       });
     };
     fetch();
-  }, []);
+  }, [setParentPosts]);
 
   return (
     <div className="tile is-4 is-parent is-vertical">
-      <TitleTile title="Szülők" />
+      <TitleTile title="Szülők mondták" />
       <div className="tile is-child">
+        <TitleTile title="Észrevételek" />
         {parentPosts &&
           parentPosts.map((parentPost: ParentPost) => {
             return <ParentPostTile key={parentPost.id} post={parentPost} />;

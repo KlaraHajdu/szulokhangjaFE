@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import { Link } from "react-router-dom";
 
 interface Props {}
 
@@ -7,12 +8,12 @@ function NavBar(): ReactElement {
     <div className="container is-size-5 has-text-weight-bold">
       <nav>
         <div className="buttons navbar-end has-text-grey-dark">
-          <a className="navbar-item ">
+          <Link to="/parent-post" className="navbar-item ">
             <strong>Szülő vagyok</strong>
-          </a>
-          <a className="navbar-item ">
+          </Link>
+          <Link to="/teacher-post" className="navbar-item">
             <strong>Tanár vagyok</strong>
-          </a>
+          </Link>
         </div>
       </nav>
     </div>

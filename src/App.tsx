@@ -1,17 +1,29 @@
 import React from "react";
 import PageTitle from "./components/PageTitle";
-import Parent from "./components/Parent";
-import ParentPostForm from "./components/ParentPostForm";
 import IndexBody from "./components/IndexBody";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ParentPostForm from "./components/ParentPostForm";
+import TeacherRecommendationForm from "./components/TeacherRecommendationForm";
+import { ParentPostProvider } from "./components/ParentPostProvider";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <PageTitle />
-
-      <Parent />
-      <ParentPostForm />
-    </div>
+    <Router>
+      <div className="App">
+        <ParentPostProvider>
+          <PageTitle />
+          <Switch>
+            <Route path="/" exact component={IndexBody} />
+            <Route path="/parent-post" exact component={ParentPostForm} />
+            <Route
+              path="/teacher-post"
+              exact
+              component={TeacherRecommendationForm}
+            />
+          </Switch>
+        </ParentPostProvider>
+      </div>
+    </Router>
   );
 };
 

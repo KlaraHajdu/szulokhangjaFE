@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { apiGet, teacherPostsRoute } from "../static/util/util";
+import {
+  apiGet,
+  teacherRecPostsRoute,
+  teacherSalPostsRoute
+} from "../static/util/util";
 import {
   TeacherSalary,
   TeacherRecommendation
@@ -17,13 +21,13 @@ const TeacherPosts: React.FC<Props> = () => {
   useEffect(() => {
     const fetch = (): void => {
       apiGet(
-        teacherPostsRoute + "salariesall",
+        teacherSalPostsRoute + "listall",
         (jsonresponse: TeacherSalary[]) => {
           setteacherSalaries(jsonresponse);
         }
       );
       apiGet(
-        teacherPostsRoute + "recommendationall",
+        teacherRecPostsRoute + "listall",
         (jsonresponse: TeacherRecommendation[]) => {
           setteacherRecommendations(jsonresponse);
         }
@@ -34,22 +38,10 @@ const TeacherPosts: React.FC<Props> = () => {
 
   return (
     <div className="tile is-parent is-vertical">
-      <TitleTile title="Tanárok" />
+      <TitleTile title="Tanárok mondták" />
       <div className="tile is-parent">
         <div className="tile is-child">
-          <TitleTile title="Fizetés" />
-          {teacherSalaries &&
-            teacherSalaries.map((teacherSalary: TeacherSalary) => {
-              return (
-                <TeacherSalaryTile
-                  key={teacherSalary.id}
-                  post={teacherSalary}
-                />
-              );
-            })}
-        </div>
-        <div className="tile is-child">
-          <TitleTile title="Javaslat" />
+          <TitleTile title="Javaslatok" />
           {teacherRecommendations &&
             teacherRecommendations.map(
               (recommendation: TeacherRecommendation) => {
@@ -61,6 +53,18 @@ const TeacherPosts: React.FC<Props> = () => {
                 );
               }
             )}
+        </div>
+        <div className="tile is-child">
+          <TitleTile title="Fizetések" />
+          {teacherSalaries &&
+            teacherSalaries.map((teacherSalary: TeacherSalary) => {
+              return (
+                <TeacherSalaryTile
+                  key={teacherSalary.id}
+                  post={teacherSalary}
+                />
+              );
+            })}
         </div>
       </div>
     </div>
