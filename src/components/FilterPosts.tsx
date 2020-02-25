@@ -7,6 +7,8 @@ import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import Checkbox from "@material-ui/core/Checkbox";
+import ParentFilterChecks from "./ParentFilterChecks";
+import TeacherFilterChecks from "./TeacherFilterChecks";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -29,14 +31,6 @@ const FilterPosts: React.FC<Props> = () => {
     const [teacher, setTeacher] = React.useState({
         IsTeacherSelected: false
     });
-
-    const [positive, setPositive] = React.useState(true);
-
-    const [negative, setNegative] = React.useState(false);
-
-    const [material, setMaterial] = React.useState(false);
-
-    const [personal, setPersonal] = React.useState(true);
 
     const classes = useStyles();
 
@@ -67,36 +61,11 @@ const FilterPosts: React.FC<Props> = () => {
         }
     };
 
-    //Ez a szintaxis valamiért nem triggelerődik itt ha két nyíllal adom át az eventet. Ugyanez fent nem gond.
-    // const handleChangeIsPositiveSelected = () => (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     console.log("Positive state" + positive);
-    //     console.log("Event target" + event.target.checked);
-    //     setPositive(event.target.checked);
-    // };
-
-    const handleChangeIsPositiveSelected = () => {
-        console.log("positive triggered");
-        setPositive(!positive);
-    };
-
-    const handleChangeIsNegativeSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setNegative(!negative);
-    };
-
-    const handleChangeIsMaterialSelected = () => {
-        console.log("Material handler called");
-        setMaterial(!material);
-    };
-
-    const handleChangeIsPersonalSelected = () => {
-        console.log("Personal handler called");
-        setPersonal(!personal);
-    };
     return (
         <div>
             <Grid container spacing={3} className={classes.container}>
                 <Grid item lg={2}>
-                    <FormGroup row>
+                    <FormGroup>
                         <FormControlLabel
                             control={
                                 <Switch
@@ -109,56 +78,18 @@ const FilterPosts: React.FC<Props> = () => {
                         />
                         <FormControlLabel
                             control={
-                                <Switch
-                                    checked={teacher.IsTeacherSelected}
-                                    onChange={handleTeacherChange()}
-                                    value="IsTeacherSelected"
-                                />
+                              <Switch
+                              checked={teacher.IsTeacherSelected}
+                              onChange={handleTeacherChange()}
+                              value="IsTeacherSelected"
+                              />
                             }
                             label="Tanárok posztjai"
                         />
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    defaultChecked={positive}
-                                    onChange={handleChangeIsPositiveSelected}
-                                    value="IsPositive"
-                                    id="PositiveCheckBox"
-                                />
-                            }
-                            label="Dícsérő posztok"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    checked={negative}
-                                    onChange={handleChangeIsNegativeSelected}
-                                    id="NegativeCheckBox"
-                                    value="IsNegative"
-                                />
-                            }
-                            label="Panaszkodó posztok"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    checked={personal}
-                                    onChange={handleChangeIsPersonalSelected}
-                                    value="IsPersonal"
-                                />
-                            }
-                            label="Személyi feltételek"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    checked={material}
-                                    onChange={handleChangeIsMaterialSelected}
-                                    value="IsMaterial"
-                                />
-                            }
-                            label="Tárgyi feltételek"
-                        />
+                            <Divider variant="fullWidth" />
+                        {parent.IsParentSelected && <ParentFilterChecks />}
+                        {teacher.IsTeacherSelected && <TeacherFilterChecks />}
+                        <Divider variant="fullWidth" />
                     </FormGroup>
                 </Grid>
                 <Grid item lg={10}></Grid>
