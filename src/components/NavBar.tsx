@@ -8,6 +8,9 @@ function NavBar(): ReactElement {
     <div className="container is-size-5 has-text-weight-bold">
       <nav>
         <div className="buttons navbar-end has-text-grey-dark">
+          <Link to="/filter" className="navbar-item ">
+            <strong>Posztok szűrése</strong>
+          </Link>
           <Link to="/parent-post" className="navbar-item ">
             <strong>Szülő vagyok</strong>
           </Link>
