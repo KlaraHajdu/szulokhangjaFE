@@ -4,67 +4,229 @@
         {
             "type": "Feature",
             "properties": {
+                "id": 0,
                 "name": "Békés",
                 "megyeszékhely": "Békéscsaba"
             },
             "geometry": {
                 "type": "Point",
-                "coordinates": [21.056577682495117, 46.738712310791016]
+                "coordinates": [20.906577682495117, 46.91712310791016]
             }
         },
         {
             "type": "Feature",
             "properties": {
-                "name": "Békés",
-                "megyeszékhely": "Békéscsaba"
+                "id": 1,
+                "name": "Bács-Kiskun",
+                "megyeszékhely": "Kecskemét"
             },
             "geometry": {
                 "type": "Point",
-                "coordinates": [21.056577682495117, 46.738712310791016]
+                "coordinates": [19.198369598388672, 46.82048873901367]
             }
         },
         {
             "type": "Feature",
             "properties": {
-                "name": "Békés",
-                "megyeszékhely": "Békéscsaba"
+                "id": 3,
+                "name": "Baranya",
+                "megyeszékhely": "Pécs"
             },
             "geometry": {
                 "type": "Point",
-                "coordinates": [21.056577682495117, 46.738712310791016]
+                "coordinates": [18.0554931640625, 46.07124710083008]
             }
         },
         {
             "type": "Feature",
             "properties": {
-                "name": "Békés",
-                "megyeszékhely": "Békéscsaba"
+                "id": 4,
+                "name": "Borsod-Abaúj-Zemplén",
+                "megyeszékhely": "Miskolc"
             },
             "geometry": {
                 "type": "Point",
-                "coordinates": [21.056577682495117, 46.738712310791016]
+                "coordinates": [20.791357040405273, 48.30438537597656]
             }
         },
         {
             "type": "Feature",
             "properties": {
-                "name": "Békés",
-                "megyeszékhely": "Békéscsaba"
+                "id": 5,
+                "name": "Csongrád",
+                "megyeszékhely": "Szeged"
             },
             "geometry": {
                 "type": "Point",
-                "coordinates": [21.056577682495117, 46.738712310791016]
+                "coordinates": [20.057035675048828, 46.46465759277344]
             }
         },
         {
             "type": "Feature",
             "properties": {
-                "name": "Békés",
-                "megyeszékhely": "Békéscsaba"
+                "id": 6,
+                "name": "Fejér",
+                "megyeszékhely": "Székesfehérvár"
             },
             "geometry": {
                 "type": "Point",
-                "coordinates": [21.056577682495117, 46.738712310791016]
+                "coordinates": [18.420011520385742, 47.19387435913086]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 7,
+                "name": "Győr-Moson-Sopron",
+                "megyeszékhely": "Győr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [17.23483428955078, 47.78376922607422]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 8,
+                "name": "Hajdú-Bihar",
+                "megyeszékhely": "Debrecen"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [21.333333206176758, 47.53333282470703]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 9,
+                "name": "Heves",
+                "megyeszékhely": "Eger"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [19.97310791015625, 47.9031982421875]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 10,
+                "name": "Jász-Nagykun-Szolnok",
+                "megyeszékhely": "Szolnok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [20.300000762939453, 47.38333435058594]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 11,
+                "name": "Komárom-Esztergom",
+                "megyeszékhely": "Tatabánya"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [18.035060501098633, 47.78291748046875]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 12,
+                "name": "Nógrád",
+                "megyeszékhely": "Salgótarján"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [19.40472183227539, 48.102664947509766]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 13,
+                "name": "Pest",
+                "megyeszékhely": "Budapest"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [19.0404707, 47.4983815]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 14,
+                "name": "Somogy",
+                "megyeszékhely": "Kaposvár"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [17.3886886, 46.6564692]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 15,
+                "name": "Szabolcs-Szatmár-Bereg",
+                "megyeszékhely": "Nyíregyháza"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [21.81666717529297, 48.05000076293945]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 16,
+                "name": "Tolna",
+                "megyeszékhely": "Szekszárd"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [18.401663, 46.6484884]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 17,
+                "name": "Vas",
+                "megyeszékhely": "Szombathely"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [16.616666793823242, 47.233333587646484]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 18,
+                "name": "Veszprém",
+                "megyeszékhely": "Veszprém"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [17.4740147, 47.1928058]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 19,
+                "name": "Zala",
+                "megyeszékhely": "Zalaegerszeg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [16.845745086669922, 46.84166717529297]
             }
         }
     ]
