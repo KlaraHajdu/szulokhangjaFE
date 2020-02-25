@@ -10,7 +10,6 @@ const TeacherFilterChecks: React.FC<Props> = () => {
     const [salary, setSalary] = React.useState(false);
 
     const handleChangeIsRecommendationSelected = () => {
-        console.log("positive triggered");
         setRecommendation(!recommendation);
     };
 

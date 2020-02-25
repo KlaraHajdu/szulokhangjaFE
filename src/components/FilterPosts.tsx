@@ -78,15 +78,15 @@ const FilterPosts: React.FC<Props> = () => {
                         />
                         <FormControlLabel
                             control={
-                              <Switch
-                              checked={teacher.IsTeacherSelected}
-                              onChange={handleTeacherChange()}
-                              value="IsTeacherSelected"
-                              />
+                                <Switch
+                                    checked={teacher.IsTeacherSelected}
+                                    onChange={handleTeacherChange()}
+                                    value="IsTeacherSelected"
+                                />
                             }
                             label="Tanárok posztjai"
                         />
-                            <Divider variant="fullWidth" />
+                        <Divider variant="fullWidth" />
                         {parent.IsParentSelected && <ParentFilterChecks />}
                         {teacher.IsTeacherSelected && <TeacherFilterChecks />}
                         <Divider variant="fullWidth" />

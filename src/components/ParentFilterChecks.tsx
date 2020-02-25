@@ -2,94 +2,70 @@ import React from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Divider from "@material-ui/core/Divider";
+import Typography from "@material-ui/core/Typography";
 
 interface Props {}
 
 const ParentFilterChecks: React.FC<Props> = () => {
+    const [personalNegative, setPersonalNegative] = React.useState(false);
 
-    const [positive, setPositive] = React.useState(true);
+    const [materialNegative, setMaterialNegative] = React.useState(false);
 
-    const [negative, setNegative] = React.useState(false);
+    const [personalPositive, setPersonalPositive] = React.useState(true);
 
-    const [material, setMaterial] = React.useState(false);
-
-    const [personal, setPersonal] = React.useState(true);
-
-    //Ez a szintaxis valamiért nem triggelerődik itt ha két nyíllal adom át az eventet. Ugyanez fent nem gond.
-    // const handleChangeIsPositiveSelected = () => (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     console.log("Positive state" + positive);
-    //     console.log("Event target" + event.target.checked);
-    //     setPositive(event.target.checked);
-    // };
-
-    const handleChangeIsPositiveSelected = () => {
-        console.log("positive triggered");
-        setPositive(!positive);
+    const handleChangeIsPersonalNegativeSelected = () => {
+        setPersonalNegative(!personalNegative);
     };
 
-    const handleChangeIsNegativeSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setNegative(!negative);
+    const handleChangeIsMaterialNegativeSelected = () => {
+        setMaterialNegative(!materialNegative);
     };
 
-    const handleChangeIsMaterialSelected = () => {
-        console.log("Material handler called");
-        setMaterial(!material);
-    };
-
-    const handleChangeIsPersonalSelected = () => {
-        console.log("Personal handler called");
-        setPersonal(!personal);
+    const handleChangeIsPersonalPositiveSelected = () => {
+        setPersonalPositive(!personalPositive);
     };
 
     return (
         <React.Fragment>
-    
-        <FormControlLabel
-        control={
-            <Checkbox
-                checked={positive}
-                onChange={handleChangeIsPositiveSelected}
-                value="IsPositive"
-                id="PositiveCheckBox"
-                />
-            }
-            label="Dícsérő posztok"
-            />
-    <FormControlLabel
-        control={
-            <Checkbox
-            checked={negative}
-            onChange={handleChangeIsNegativeSelected}
-                id="NegativeCheckBox"
-                value="IsNegative"
-                />
-            }
-            label="Panaszkodó posztok"
+            <Typography>Dícsérő posztok</Typography>
+
+            <FormControlLabel
+                style={{ marginLeft: "0" }}
+                control={
+                    <Checkbox
+                        checked={personalPositive}
+                        onChange={handleChangeIsPersonalPositiveSelected}
+                        value="IsPersonalPositive"
+                    />
+                }
+                label="Személyi feltételek"
             />
             <Divider variant="fullWidth" />
-    <FormControlLabel
-        control={
-            <Checkbox
-            checked={personal}
-            onChange={handleChangeIsPersonalSelected}
-            value="IsPersonal"
+            <Typography>Panaszkodó posztok</Typography>
+            <FormControlLabel
+                style={{ marginLeft: "0" }}
+                control={
+                    <Checkbox
+                        checked={personalNegative}
+                        onChange={handleChangeIsPersonalNegativeSelected}
+                        value="IsPersonalNegative"
+                    />
+                }
+                label="Személyi feltételek"
             />
-        }
-        label="Személyi feltételek"
-        />
-    <FormControlLabel
-        control={
-            <Checkbox
-            checked={material}
-            onChange={handleChangeIsMaterialSelected}
-            value="IsMaterial"
+            <FormControlLabel
+                style={{ marginLeft: "0" }}
+                control={
+                    <Checkbox
+                        checked={materialNegative}
+                        onChange={handleChangeIsMaterialNegativeSelected}
+                        value="IsMaterialNegative"
+                    />
+                }
+                label="Tárgyi feltételek"
             />
-        }
-        label="Tárgyi feltételek"
-        />
-
         </React.Fragment>
-    )
+    );
 };
 
 export default ParentFilterChecks;
