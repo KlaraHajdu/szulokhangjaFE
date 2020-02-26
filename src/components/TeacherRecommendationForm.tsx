@@ -8,16 +8,11 @@ const TeacherRecommendationForm: React.FC = () => {
     const [message, setMeassage] = useState();
     const [name, setName] = useState();
     const [location, setLocation] = useState();
-    // const [teacherRecommendations, setTeacherRecommendations] = useContext(
-    //   TeacherRecommendationContext
-    // );
+    const [teacherRecommendations, setTeacherRecommendations] = useContext(TeacherRecommendationContext);
 
     const sendFormData = (data: TeacherRecommendation): void => {
         apiPost(teacherRecPostsRoute + "add", data, (response: TeacherRecommendation) => {
-            //   setTeacherRecommendations((previousPosts: TeacherRecommendation[]) => [
-            //     ...previousPosts,
-            //    response
-            //  ]);
+            setTeacherRecommendations((previousPosts: TeacherRecommendation[]) => [...previousPosts, response]);
             console.log(response);
         });
     };

@@ -2,6 +2,7 @@ import moment from "moment";
 
 export function apiPost(url: string, data: any, callback: any): void {
     fetch(url, {
+        credentials: "include",
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -34,3 +35,4 @@ export const teacherRecPostsRoute: string = "http://localhost:60680/api/teacherr
 export const teacherSalPostsRoute: string = "http://localhost:60680/api/teachersal/";
 export const mapBoxApiToken: string =
     "pk.eyJ1IjoiaGV4eGFyIiwiYSI6ImNrNzBraDduZDAyMmgzbXFrajVrcGxtODQifQ.6WbH0Lj9O49W5cz8HbOa-w";
+export const loginRoute: string = "http://localhost:60680/api/authentication/login";
