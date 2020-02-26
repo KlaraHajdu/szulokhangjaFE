@@ -1,28 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
+import { ParentFilterContext } from "./ParentFilterProvider";
 
 interface Props {}
 
 const ParentFilterChecks: React.FC<Props> = () => {
-    const [personalNegative, setPersonalNegative] = React.useState(false);
-
-    const [materialNegative, setMaterialNegative] = React.useState(false);
-
-    const [personalPositive, setPersonalPositive] = React.useState(true);
+    const [parentFilters, setParentFilters] = useContext(ParentFilterContext);
 
     const handleChangeIsPersonalNegativeSelected = () => {
-        setPersonalNegative(!personalNegative);
+        setParentFilters({ ...parentFilters, personalNegative: !parentFilters.personalNegative });
     };
 
     const handleChangeIsMaterialNegativeSelected = () => {
-        setMaterialNegative(!materialNegative);
+        setParentFilters({ ...parentFilters, materialNegative: !parentFilters.materialNegative });
     };
 
     const handleChangeIsPersonalPositiveSelected = () => {
-        setPersonalPositive(!personalPositive);
+        setParentFilters({ ...parentFilters, personalPositive: !parentFilters.personalPositive });
     };
 
     return (
@@ -33,7 +30,7 @@ const ParentFilterChecks: React.FC<Props> = () => {
                 style={{ marginLeft: "0" }}
                 control={
                     <Checkbox
-                        checked={personalPositive}
+                        checked={parentFilters.personalPositive}
                         onChange={handleChangeIsPersonalPositiveSelected}
                         value="IsPersonalPositive"
                     />
@@ -46,7 +43,7 @@ const ParentFilterChecks: React.FC<Props> = () => {
                 style={{ marginLeft: "0" }}
                 control={
                     <Checkbox
-                        checked={personalNegative}
+                        checked={parentFilters.personalNegative}
                         onChange={handleChangeIsPersonalNegativeSelected}
                         value="IsPersonalNegative"
                     />
@@ -57,7 +54,7 @@ const ParentFilterChecks: React.FC<Props> = () => {
                 style={{ marginLeft: "0" }}
                 control={
                     <Checkbox
-                        checked={materialNegative}
+                        checked={parentFilters.materialNegative}
                         onChange={handleChangeIsMaterialNegativeSelected}
                         value="IsMaterialNegative"
                     />

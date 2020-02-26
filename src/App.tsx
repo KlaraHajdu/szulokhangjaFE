@@ -6,27 +6,29 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ParentPostForm from "./components/ParentPostForm";
 import TeacherRecommendationForm from "./components/TeacherRecommendationForm";
 import { ParentPostProvider } from "./components/ParentPostProvider";
+import { ParentFilterProvider } from "./components/ParentFilterProvider";
+import { TeacherFilterProvider } from "./components/TeacherFilterProvider";
 
 const App: React.FC = () => {
-  return (
-    <Router>
-      <div className="App">
-        <ParentPostProvider>
-          <PageTitle />
-          <Switch>
-            <Route path="/" exact component={IndexBody} />
-            <Route path="/filter" component={FilterPosts} />
-            <Route path="/parent-post" exact component={ParentPostForm} />
-            <Route
-              path="/teacher-post"
-              exact
-              component={TeacherRecommendationForm}
-            />
-          </Switch>
-        </ParentPostProvider>
-      </div>
-    </Router>
-  );
+    return (
+        <Router>
+            <div className="App">
+                <ParentFilterProvider>
+                    <TeacherFilterProvider>
+                        <ParentPostProvider>
+                            <PageTitle />
+                            <Switch>
+                                <Route path="/" exact component={IndexBody} />
+                                <Route path="/filter" component={FilterPosts} />
+                                <Route path="/parent-post" exact component={ParentPostForm} />
+                                <Route path="/teacher-post" exact component={TeacherRecommendationForm} />
+                            </Switch>
+                        </ParentPostProvider>
+                    </TeacherFilterProvider>
+                </ParentFilterProvider>
+            </div>
+        </Router>
+    );
 };
 
 export default App;

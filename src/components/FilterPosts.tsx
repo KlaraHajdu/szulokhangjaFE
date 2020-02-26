@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid";
+import Divider from "@material-ui/core/Divider";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormGroup from "@material-ui/core/FormGroup";
-import Checkbox from "@material-ui/core/Checkbox";
 import ParentFilterChecks from "./ParentFilterChecks";
 import TeacherFilterChecks from "./TeacherFilterChecks";
+import ParentPosts from "./ParentPosts";
+import TeacherPosts from "./TeacherPosts";
+import { ParentFilterContext } from "./ParentFilterProvider";
+import { TeacherFilterContext } from "./TeacherFilterProvider";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -24,6 +26,18 @@ const useStyles = makeStyles((theme: Theme) =>
 interface Props {}
 
 const FilterPosts: React.FC<Props> = () => {
+    const [parentFilters, setParentFilters] = useContext(ParentFilterContext);
+
+    const togglePersonalPositive = () => {
+        setParentFilters({ personalPositive: !parentFilters.personalPositive });
+    };
+    const togglePersonalNegative = () => {
+        setParentFilters({ personalPositive: !parentFilters.spersonalPositive });
+    };
+    const toggleMaterialNegative = () => {
+        setParentFilters({ personalPositive: !parentFilters.personalPositive });
+    };
+
     const [parent, setParent] = React.useState({
         IsParentSelected: true
     });
@@ -35,13 +49,8 @@ const FilterPosts: React.FC<Props> = () => {
     const classes = useStyles();
 
     const handleParentChange = () => (event: React.ChangeEvent<HTMLInputElement>) => {
-        // event.target.checked === true
-        //     ? setState({ ...state, IsTeacherSelected: false })
-        //     : setState({ ...state, IsTeacherSelected: true });
-        console.log(parent);
         setParent({ IsParentSelected: event.target.checked });
         handleToggleParentTeacher("IsParentSelected");
-        console.log(parent);
     };
 
     const handleTeacherChange = () => (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,6 +71,10 @@ const FilterPosts: React.FC<Props> = () => {
     };
 
     return (
+        // value={{ togglePersonalPositive, toggleMaterialNegative, togglePersonalNegative }}
+        // <ParentFilterContext.Provider
+        //     value={{ parentFilters, togglePersonalPositive, toggleMaterialNegative, togglePersonalNegative }}
+        // >
         <div>
             <Grid container spacing={3} className={classes.container}>
                 <Grid item lg={2}>
@@ -92,9 +105,13 @@ const FilterPosts: React.FC<Props> = () => {
                         <Divider variant="fullWidth" />
                     </FormGroup>
                 </Grid>
-                <Grid item lg={10}></Grid>
+                <Grid item lg={10}>
+                    {parent.IsParentSelected && <ParentPosts />}
+                    {teacher.IsTeacherSelected && <TeacherPosts />}
+                </Grid>
             </Grid>
         </div>
+        // </ParentFilterContext.Provider>
     );
 };
 

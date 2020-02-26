@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import { TeacherFilterContext } from "./TeacherFilterProvider";
 
 interface Props {}
 
 const TeacherFilterChecks: React.FC<Props> = () => {
-    const [recommendation, setRecommendation] = React.useState(true);
+    const [teacherFilters, setTeacherFilters] = useContext(TeacherFilterContext);
+
+    // const [recommendation, setRecommendation] = React.useState(true);
 
     const [salary, setSalary] = React.useState(false);
 
     const handleChangeIsRecommendationSelected = () => {
-        setRecommendation(!recommendation);
+        setTeacherFilters({ ...teacherFilters, recommendation: !teacherFilters.recommendation });
     };
 
     const handleChangeIsSalarySelected = () => {
-        setSalary(!salary);
+        setTeacherFilters({ ...teacherFilters, salary: !teacherFilters.salary });
     };
 
     return (
@@ -22,7 +25,7 @@ const TeacherFilterChecks: React.FC<Props> = () => {
             <FormControlLabel
                 control={
                     <Checkbox
-                        checked={recommendation}
+                        checked={teacherFilters.recommendation}
                         onChange={handleChangeIsRecommendationSelected}
                         value="IsRecommendation"
                     />
@@ -32,7 +35,7 @@ const TeacherFilterChecks: React.FC<Props> = () => {
             <FormControlLabel
                 control={
                     <Checkbox
-                        checked={salary}
+                        checked={teacherFilters.salary}
                         onChange={handleChangeIsSalarySelected}
                         id="SalaryCheckBox"
                         value="IsSalary"
