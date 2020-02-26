@@ -11,6 +11,7 @@ export function apiPost(url: string, data: any, callback: any): void {
   })
     .then(response => response.json())
     .then(jsonresponse => {
+      console.log(jsonresponse);
       callback(jsonresponse);
     });
 }

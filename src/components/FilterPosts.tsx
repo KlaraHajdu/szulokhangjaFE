@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
@@ -9,8 +9,6 @@ import ParentFilterChecks from "./ParentFilterChecks";
 import TeacherFilterChecks from "./TeacherFilterChecks";
 import ParentPosts from "./ParentPosts";
 import TeacherPosts from "./TeacherPosts";
-import { ParentFilterContext } from "./ParentFilterProvider";
-import { TeacherFilterContext } from "./TeacherFilterProvider";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -26,18 +24,6 @@ const useStyles = makeStyles((theme: Theme) =>
 interface Props {}
 
 const FilterPosts: React.FC<Props> = () => {
-    const [parentFilters, setParentFilters] = useContext(ParentFilterContext);
-
-    const togglePersonalPositive = () => {
-        setParentFilters({ personalPositive: !parentFilters.personalPositive });
-    };
-    const togglePersonalNegative = () => {
-        setParentFilters({ personalPositive: !parentFilters.spersonalPositive });
-    };
-    const toggleMaterialNegative = () => {
-        setParentFilters({ personalPositive: !parentFilters.personalPositive });
-    };
-
     const [parent, setParent] = React.useState({
         IsParentSelected: true
     });
@@ -71,10 +57,6 @@ const FilterPosts: React.FC<Props> = () => {
     };
 
     return (
-        // value={{ togglePersonalPositive, toggleMaterialNegative, togglePersonalNegative }}
-        // <ParentFilterContext.Provider
-        //     value={{ parentFilters, togglePersonalPositive, toggleMaterialNegative, togglePersonalNegative }}
-        // >
         <div>
             <Grid container spacing={3} className={classes.container}>
                 <Grid item lg={2}>

@@ -8,10 +8,6 @@ interface Props {}
 const TeacherFilterChecks: React.FC<Props> = () => {
     const [teacherFilters, setTeacherFilters] = useContext(TeacherFilterContext);
 
-    // const [recommendation, setRecommendation] = React.useState(true);
-
-    const [salary, setSalary] = React.useState(false);
-
     const handleChangeIsRecommendationSelected = () => {
         setTeacherFilters({ ...teacherFilters, recommendation: !teacherFilters.recommendation });
     };
