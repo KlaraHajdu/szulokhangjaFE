@@ -87,7 +87,7 @@ const FilterPosts: React.FC<Props> = () => {
                         <Divider variant="fullWidth" />
                     </FormGroup>
                 </Grid>
-                <Grid item lg={10}>
+                <Grid item lg={9}>
                     {parent.IsParentSelected && <ParentPosts />}
                     {teacher.IsTeacherSelected && <TeacherPosts />}
                 </Grid>
