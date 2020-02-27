@@ -48,6 +48,16 @@ const NavBar = () => {
                             Tanárok
                         </Button>
                     </Link>
+                    <Link to="/statistics/1">
+                        <Button color="inherit" style={{ color: "#ffffff" }}>
+                            Statisztika
+                        </Button>
+                    </Link>
+                    <Link to="/filter">
+                        <Button color="inherit" style={{ color: "#ffffff" }}>
+                            Bejelentések
+                        </Button>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </div>

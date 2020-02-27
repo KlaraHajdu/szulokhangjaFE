@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ParentPostForm from "./components/ParentPostForm";
 import TeacherRecommendationForm from "./components/TeacherRecommendationForm";
 import { ParentPostProvider } from "./components/ParentPostProvider";
-import HungaryCountyMap from "./components/HungaryCountyMap";
 import { TeacherRecommendationProvider } from "./components/TeacherRecommendationProvider";
 import { ParentFilterProvider } from "./components/ParentFilterProvider";
 import { TeacherFilterProvider } from "./components/TeacherFilterProvider";
