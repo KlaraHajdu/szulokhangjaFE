@@ -10,7 +10,7 @@ import { TeacherRecommendationProvider } from "./components/TeacherRecommendatio
 import LoginPage from "./components/LoginPage";
 import { MuiThemeProvider, createMuiTheme, PaletteColorOptions } from "@material-ui/core";
 import { amber } from "@material-ui/core/colors";
-import Container from "@material-ui/core/Container";
+import "./static/style/App.css";
 
 export const theme = createMuiTheme({
     palette: {
@@ -27,12 +27,10 @@ const App: React.FC = () => {
                     <ParentPostProvider>
                         <TeacherRecommendationProvider>
                             <PageTitle />
-
                             <Switch>
                                 <Route path="/" exact component={IndexBody} />
                                 <Route path="/parent-post" exact component={ParentPostForm} />
                                 <Route path="/teacher-post" exact component={TeacherRecommendationForm} />
-                                <Route path="/county-map" exact component={HungaryCountyMap} />
                                 <Route path="/login" exact component={LoginPage} />
                             </Switch>
                         </TeacherRecommendationProvider>

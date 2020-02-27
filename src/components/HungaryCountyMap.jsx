@@ -13,7 +13,8 @@ function HungaryCountyMap(props) {
         longitude: 19.210350283613785,
         width: "50em",
         height: "50em",
-        zoom: 6.8
+        zoom: 6.5,
+        pitch: 20
     });
 
     const [parentPosts, setParentPosts] = useContext(ParentPostContext);
@@ -54,8 +55,8 @@ function HungaryCountyMap(props) {
     };
 
     const setZoom = zoom => {
-        if (zoom < 6.9) {
-            return 6.9;
+        if (zoom < 6.7) {
+            return 6.7;
         } else {
             return zoom;
         }
@@ -63,7 +64,7 @@ function HungaryCountyMap(props) {
 
     const setLatitudeBoundaries = (latitude, zoom) => {
         console.log(zoom);
-        if (zoom > 6.9) {
+        if (zoom > 6.7) {
             if (latitude > 48.27440611924083) {
                 return 48.27440611924083;
             } else if (latitude < 45.72973941244668) {
@@ -77,7 +78,7 @@ function HungaryCountyMap(props) {
     };
 
     const setLongitudeBoundaries = (longitude, zoom) => {
-        if (zoom > 6.9) {
+        if (zoom > 6.7) {
             if (longitude < 16.096828856526308) {
                 return 16.096828856526308;
             } else if (longitude > 22.856966519292534) {
@@ -113,12 +114,14 @@ function HungaryCountyMap(props) {
                         latitude={county.geometry.coordinates[1]}
                         longitude={county.geometry.coordinates[0]}
                     >
-                        <a className="icon has-text-danger is-large">
-                            <FontAwesomeIcon icon={faSchool} size="2x" title="ASD"></FontAwesomeIcon>
-                        </a>
-                        <span className="has-text-danger is-large has-text-weight-bold">
-                            {getNumberOfPostForRegion(county.properties.name)}
-                        </span>
+                        <div className="marker-container">
+                            <a className="icon has-text-danger is-large has text-centered">
+                                <FontAwesomeIcon icon={faSchool} size="2x"></FontAwesomeIcon>
+                            </a>
+                            <p className="has-text-danger is-large has-text-weight-bold has-text-centered">
+                                {getNumberOfPostForRegion(county.properties.name)}
+                            </p>
+                        </div>
                     </Marker>
                 ))}
         </ReactMapGL>
