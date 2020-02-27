@@ -10,7 +10,6 @@ import { Typography, FormGroup } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 
 const ParentPostForm: React.FC = () => {
@@ -60,7 +59,6 @@ const ParentPostForm: React.FC = () => {
     const inputLabel = React.useRef<HTMLLabelElement>(null);
 
     return (
-        // <div className="container-fluid" style={{ margin: 20, padding: 30 }}>
         <Container maxWidth="md" style={{ marginTop: "100px" }}>
             <Box>
                 <Typography style={{ padding: "10px" }}>
@@ -133,7 +131,6 @@ const ParentPostForm: React.FC = () => {
                 </FormGroup>
             </Box>
         </Container>
-        // </div>
     );
 };
 

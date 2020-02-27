@@ -3,6 +3,14 @@ import { apiPost, teacherRecPostsRoute } from "../static/util/util";
 import { TeacherRecommendation } from "../static/util/dataInterfaces";
 import { Link } from "react-router-dom";
 import { TeacherRecommendationContext } from "./TeacherRecommendationProvider";
+import FormControl from "@material-ui/core/FormControl";
+import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
+import { Typography, FormGroup } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
 
 const TeacherRecommendationForm: React.FC = () => {
     const [message, setMeassage] = useState();
@@ -39,27 +47,68 @@ const TeacherRecommendationForm: React.FC = () => {
         setLocation(e.target.value);
     };
 
+    const inputLabel = React.useRef<HTMLLabelElement>(null);
+
     return (
-        <div className="container-fluid" style={{ margin: 20, padding: 30 }}>
-            <div className="box">
-                <p>Név</p>
-                <textarea onChange={updateName} style={{ width: "30%" }} name="Name"></textarea>
-                <p> Megye </p>
-                <textarea onChange={updateLocation} style={{ width: "30%" }} name="location"></textarea>
-                <p> Javaslat </p>
-                <textarea onChange={updateMessage} style={{ width: "100%" }} name="message"></textarea>
-                <div>
-                    <Link to="/">
-                        <button
-                            className="button is-info"
-                            onClick={() => sendFormData(createNewTeacherRecommendation())}
-                        >
-                            Elküldöm
-                        </button>
-                    </Link>
-                </div>
-            </div>
-        </div>
+        <Container maxWidth="md" style={{ marginTop: "100px" }}>
+            <Box>
+                <Typography style={{ padding: "10px" }}>
+                    Töltse fel észrevételeit az oktatással kapcsolatban. A pozitív üzenetek inspirálnak, míg a panaszok
+                    megmutatják, miként kellene javítani az oktatás helyzetén.
+                </Typography>
+                <FormGroup>
+                    <FormControl variant="outlined" style={{ padding: "10px" }}>
+                        <TextField
+                            id="outlined-basic"
+                            label="Név"
+                            variant="outlined"
+                            onChange={updateName}
+                            name="name"
+                        ></TextField>
+                    </FormControl>
+                    <FormControl variant="outlined" style={{ padding: "10px" }}>
+                        <InputLabel ref={inputLabel} id="tema-label">
+                            Bejelentés helye
+                        </InputLabel>
+                        <Select onChange={updateLocation}>
+                            <option value="Budapest">Budapest</option>
+                            <option value="Bács-Kiskun megye">Bács-Kiskun megye</option>
+                            <option value="Baranya megye">Baranya megye</option>
+                            <option value="Békés megye">Békés megye</option>
+                            <option value="Borsod-Abaúj-Zemplén">Borsod-Abaúj-Zemplén megye</option>
+                            <option value="Csongrád megye">Csongrád megye</option>
+                            <option value="Fejér megye">Fejér megye</option>
+                            <option value="Győr-Moson-Sopron megye">Győr-Moson-Sopron megye</option>
+                            <option value="Hajdú-Bihar megye">Hajdú-Bihar megye</option>
+                            <option value="Heves megye">Heves megye</option>
+                            <option value="Jász-Nagykun-Szolnok megye">Jász-Nagykun-Szolnok megye</option>
+                            <option value="Komárom-Esztergom megye">Komárom-Esztergom megye</option>
+                            <option value="Nógrád megye">Nógrád megye</option>
+                            <option value="Pest megye">Pest megye</option>
+                            <option value="Somogy megye">Somogy megye</option>
+                            <option value="Szabolcs-Szatmár-Bereg megye">Szabolcs-Szatmár-Bereg megye</option>
+                            <option value="Tolna megye">Tolna megye</option>
+                            <option value="Vas megye">Vas megye</option>
+                            <option value="Veszprém megye">Veszprém megye</option>
+                            <option value="Zala megye">Zala megye</option>
+                        </Select>
+                    </FormControl>
+                    <TextField
+                        id="outlined-basic"
+                        label="Vélemény"
+                        variant="outlined"
+                        onChange={updateMessage}
+                        name="message"
+                        style={{ padding: "10px" }}
+                    ></TextField>
+                    <div>
+                        <Link to="/">
+                            <Button onClick={() => sendFormData(createNewTeacherRecommendation())}>Elküldöm</Button>
+                        </Link>
+                    </div>
+                </FormGroup>
+            </Box>
+        </Container>
     );
 };
 
