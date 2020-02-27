@@ -2,7 +2,6 @@ import React, { useEffect, useContext, useState } from "react";
 import StreamChart from "./ChartComponents/StreamChart";
 import DateBarChart from "./ChartComponents/DateBarChart";
 import { Link, useParams } from "react-router-dom";
-import { ParentPostContext } from "./ParentPostProvider";
 import {
   apiGet,
   parentPostsRoute,
@@ -10,6 +9,7 @@ import {
   teacherSalPostsRoute
 } from "../static/util/util";
 import { dataMaker } from "../static/util/dataFormatter";
+import {Button, ButtonGroup, Container} from '@material-ui/core'
 
 function Statistics() {
   const { id } = useParams();
@@ -59,28 +59,15 @@ function Statistics() {
 
   return (
     <React.Fragment>
-      <div class="columns">
-        <div className="column is-one-fifth">
-          <a href="/statistics/1" className="button is-link is-fullwidth">
-            1
-          </a>
+        <ButtonGroup>
+              <Link to="/statistics/1"><Button size="large"  color="primary">Idovonal</Button></Link> 
+              <Link to="/statistics/2"><Button size="large"  color="primary">Hely szerint</Button></Link>
+              <Link to="/statistics/3"><Button size="large"  color="primary">Ido szerint</Button></Link>
+        </ButtonGroup>
 
-          <a href="/statistics/2" className="button is-link is-fullwidth">
-            2
-          </a>
-
-          <a href="/statistics/3" className="button is-link is-fullwidth">
-            3
-          </a>
-        </div>
-      </div>
-
-      <div
-        className="column is-four-fifths"
-        style={{ backgroundColor: "red", height: "600px" }}
-      >
+      <Container maxWidth="lg" style={{height:"70vh"}}>
         {renderStat(id)}
-      </div>
+      </Container>
     </React.Fragment>
   );
 }
