@@ -14,6 +14,9 @@ function NavBar(): ReactElement {
           <Link to="/teacher-post" className="navbar-item">
             <strong>Tanár vagyok</strong>
           </Link>
+          <Link to="/statistics/1" className="navbar-item">
+            <strong>Statisztikak</strong>
+          </Link>
         </div>
       </nav>
     </div>

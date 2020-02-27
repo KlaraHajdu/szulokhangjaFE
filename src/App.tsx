@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ParentPostForm from "./components/ParentPostForm";
 import TeacherRecommendationForm from "./components/TeacherRecommendationForm";
 import { ParentPostProvider } from "./components/ParentPostProvider";
+import Statistics from "./components/Statistics";
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
               exact
               component={TeacherRecommendationForm}
             />
+            <Route path="/statistics/:id" component={Statistics} />
           </Switch>
         </ParentPostProvider>
       </div>
