@@ -9,7 +9,7 @@ interface Props {
 const TeacherRecommendationTile: React.FC<Props> = ({ post }) => {
     return (
         <div className="tile is-parent box is-vertical  is-size-7">
-            <div className="tile is-parent  is-size-7" style={{ backgroundColor: "rgba(23, 96, 186, 0.4)" }}>
+            <div className="tile is-parent  is-size-7" style={{ backgroundColor: "#ffe082" }}>
                 <div className="tile is-child">
                     <p>{post.location}</p>
                 </div>

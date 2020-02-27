@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
             flexGrow: 1
         },
         menuButton: {
-            marginRight: theme.spacing(2)
+            marginRight: theme.spacing(3)
         },
         title: {
             flexGrow: 1
@@ -30,7 +30,12 @@ const NavBar = () => {
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="secondary" aria-label="menu">
+                    <IconButton
+                        edge="start"
+                        className={classes.menuButton}
+                        style={{ color: "#ffffff" }}
+                        aria-label="menu"
+                    >
                         <MenuIcon />
                     </IconButton>
 
@@ -39,15 +44,6 @@ const NavBar = () => {
                             Szülők Hangja
                         </Link>
                     </Typography>
-
-                    <Link to="/parent-post" style={{ color: "#ffffff" }}>
-                        <Button color="inherit">Szülők</Button>
-                    </Link>
-                    <Link to="/teacher-post">
-                        <Button color="inherit" style={{ color: "#ffffff" }}>
-                            Tanárok
-                        </Button>
-                    </Link>
                     <Link to="/statistics/1">
                         <Button color="inherit" style={{ color: "#ffffff" }}>
                             Statisztika
@@ -56,6 +52,11 @@ const NavBar = () => {
                     <Link to="/filter">
                         <Button color="inherit" style={{ color: "#ffffff" }}>
                             Bejelentések
+                        </Button>
+                    </Link>
+                    <Link to="/teacher-post">
+                        <Button color="secondary" variant="contained" style={{ color: "#ffffff" }}>
+                            Új bejelentés
                         </Button>
                     </Link>
                 </Toolbar>

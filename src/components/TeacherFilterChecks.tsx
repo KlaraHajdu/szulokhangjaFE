@@ -24,6 +24,7 @@ const TeacherFilterChecks: React.FC<Props> = () => {
                         checked={teacherFilters.recommendation}
                         onChange={handleChangeIsRecommendationSelected}
                         value="IsRecommendation"
+                        color="primary"
                     />
                 }
                 label="Javaslatok"
@@ -35,6 +36,7 @@ const TeacherFilterChecks: React.FC<Props> = () => {
                         onChange={handleChangeIsSalarySelected}
                         id="SalaryCheckBox"
                         value="IsSalary"
+                        color="primary"
                     />
                 }
                 label="Anyagi megbecsülés"
