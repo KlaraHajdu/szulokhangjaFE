@@ -72,25 +72,25 @@ const TeacherRecommendationForm: React.FC = () => {
                         </InputLabel>
                         <Select onChange={updateLocation}>
                             <option value="Budapest">Budapest</option>
-                            <option value="Bács-Kiskun megye">Bács-Kiskun megye</option>
-                            <option value="Baranya megye">Baranya megye</option>
-                            <option value="Békés megye">Békés megye</option>
+                            <option value="Bács-Kiskun">Bács-Kiskun megye</option>
+                            <option value="Baranya">Baranya megye</option>
+                            <option value="Békés">Békés megye</option>
                             <option value="Borsod-Abaúj-Zemplén">Borsod-Abaúj-Zemplén megye</option>
-                            <option value="Csongrád megye">Csongrád megye</option>
-                            <option value="Fejér megye">Fejér megye</option>
-                            <option value="Győr-Moson-Sopron megye">Győr-Moson-Sopron megye</option>
-                            <option value="Hajdú-Bihar megye">Hajdú-Bihar megye</option>
-                            <option value="Heves megye">Heves megye</option>
-                            <option value="Jász-Nagykun-Szolnok megye">Jász-Nagykun-Szolnok megye</option>
-                            <option value="Komárom-Esztergom megye">Komárom-Esztergom megye</option>
-                            <option value="Nógrád megye">Nógrád megye</option>
-                            <option value="Pest megye">Pest megye</option>
-                            <option value="Somogy megye">Somogy megye</option>
-                            <option value="Szabolcs-Szatmár-Bereg megye">Szabolcs-Szatmár-Bereg megye</option>
-                            <option value="Tolna megye">Tolna megye</option>
-                            <option value="Vas megye">Vas megye</option>
-                            <option value="Veszprém megye">Veszprém megye</option>
-                            <option value="Zala megye">Zala megye</option>
+                            <option value="Csongrád">Csongrád megye</option>
+                            <option value="Fejér">Fejér megye</option>
+                            <option value="Győr-Moson-Sopron">Győr-Moson-Sopron megye</option>
+                            <option value="Hajdú-Bihar">Hajdú-Bihar megye</option>
+                            <option value="Heves">Heves megye</option>
+                            <option value="Jász-Nagykun-Szolnok">Jász-Nagykun-Szolnok megye</option>
+                            <option value="Komárom-Esztergom">Komárom-Esztergom megye</option>
+                            <option value="Nógrád">Nógrád megye</option>
+                            <option value="Pest">Pest megye</option>
+                            <option value="Somogy">Somogy megye</option>
+                            <option value="Szabolcs-Szatmár-Bereg">Szabolcs-Szatmár-Bereg megye</option>
+                            <option value="Tolna">Tolna megye</option>
+                            <option value="Vas">Vas megye</option>
+                            <option value="Veszprém">Veszprém megye</option>
+                            <option value="Zala">Zala megye</option>
                         </Select>
                     </FormControl>
                     <TextField
