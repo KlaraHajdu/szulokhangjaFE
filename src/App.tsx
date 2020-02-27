@@ -8,6 +8,7 @@ import TeacherRecommendationForm from "./components/TeacherRecommendationForm";
 import { ParentPostProvider } from "./components/ParentPostProvider";
 import { ParentFilterProvider } from "./components/ParentFilterProvider";
 import { TeacherFilterProvider } from "./components/TeacherFilterProvider";
+import Statistics from "./components/Statistics";
 
 const App: React.FC = () => {
     return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
                                 <Route path="/filter" component={FilterPosts} />
                                 <Route path="/parent-post" exact component={ParentPostForm} />
                                 <Route path="/teacher-post" exact component={TeacherRecommendationForm} />
+                                <Route path="/statistics/:id" component={Statistics} />
                             </Switch>
                         </ParentPostProvider>
                     </TeacherFilterProvider>
