@@ -17,8 +17,8 @@ const StreamChart = ({ data /* see data tab */ }) => (
       tickSize: 5,
       tickPadding: 5,
       tickRotation: 0,
-      legend: "",
-      legendOffset: 36
+      legend: "Posztok alakulasa idovel helysegkent",
+      legendOffset: 35
     }}
     axisLeft={{
       orient: "left",
