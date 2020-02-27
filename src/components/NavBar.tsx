@@ -26,8 +26,6 @@ const useStyles = makeStyles((theme: Theme) =>
 const NavBar = () => {
     const classes = useStyles();
 
-    const color = amber[500];
-
     return (
         <div className={classes.root}>
             <AppBar position="static">

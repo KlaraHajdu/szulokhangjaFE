@@ -1,74 +1,53 @@
-import React, { useState, useEffect } from "react";
-import {
-  apiGet,
-  teacherRecPostsRoute,
-  teacherSalPostsRoute
-} from "../static/util/util";
-import {
-  TeacherSalary,
-  TeacherRecommendation
-} from "../static/util/dataInterfaces";
+import React, { useState, useEffect, useContext } from "react";
+import { apiGet, teacherRecPostsRoute, teacherSalPostsRoute } from "../static/util/util";
+import { TeacherSalary, TeacherRecommendation } from "../static/util/dataInterfaces";
 import TeacherSalaryTile from "./TeacherSalaryTile";
-import TitleTile from "./TitleTile";
 import TeacherRecommendationTile from "./TeacherRecommendationTile";
+import Typography from "@material-ui/core/Typography";
+import { TeacherFilterContext } from "./TeacherFilterProvider";
 
 interface Props {}
 
-const TeacherPosts: React.FC<Props> = () => {
-  const [teacherSalaries, setteacherSalaries] = useState();
-  const [teacherRecommendations, setteacherRecommendations] = useState();
+const TeacherPosts: React.FC<Props> = props => {
+    const [teacherSalaries, setteacherSalaries] = useState();
+    const [teacherRecommendations, setteacherRecommendations] = useState();
 
-  useEffect(() => {
-    const fetch = (): void => {
-      apiGet(
-        teacherSalPostsRoute + "listall",
-        (jsonresponse: TeacherSalary[]) => {
-          setteacherSalaries(jsonresponse);
-        }
-      );
-      apiGet(
-        teacherRecPostsRoute + "listall",
-        (jsonresponse: TeacherRecommendation[]) => {
-          setteacherRecommendations(jsonresponse);
-        }
-      );
-    };
-    fetch();
-  }, []);
+    const [teacherFilters, setTeacherFilters] = useContext(TeacherFilterContext);
 
-  return (
-    <div className="tile is-parent is-vertical">
-      <TitleTile title="Tanárok mondták" />
-      <div className="tile is-parent">
-        <div className="tile is-child">
-          <TitleTile title="Javaslatok" />
-          {teacherRecommendations &&
-            teacherRecommendations.map(
-              (recommendation: TeacherRecommendation) => {
-                return (
-                  <TeacherRecommendationTile
-                    key={recommendation.id}
-                    post={recommendation}
-                  />
-                );
-              }
-            )}
-        </div>
-        <div className="tile is-child">
-          <TitleTile title="Fizetések" />
-          {teacherSalaries &&
-            teacherSalaries.map((teacherSalary: TeacherSalary) => {
-              return (
-                <TeacherSalaryTile
-                  key={teacherSalary.id}
-                  post={teacherSalary}
-                />
-              );
-            })}
-        </div>
-      </div>
-    </div>
-  );
+    useEffect(() => {
+        const fetch = (): void => {
+            apiGet(teacherSalPostsRoute + "listall", (jsonresponse: TeacherSalary[]) => {
+                setteacherSalaries(jsonresponse);
+            });
+            apiGet(teacherRecPostsRoute + "listall", (jsonresponse: TeacherRecommendation[]) => {
+                setteacherRecommendations(jsonresponse);
+            });
+        };
+        fetch();
+    }, []);
+
+    let allTypePosts: any = [];
+
+    for (let key in teacherSalaries) {
+        if (teacherFilters.salary === true) allTypePosts.push(teacherSalaries[key]);
+    }
+
+    for (let key in teacherRecommendations) {
+        if (teacherFilters.recommendation === true) allTypePosts.push(teacherRecommendations[key]);
+    }
+
+    return (
+        <React.Fragment>
+            <Typography variant="h5">Tanárok mondták</Typography>
+            {teacherRecommendations &&
+                teacherSalaries &&
+                allTypePosts.map((post: any) => {
+                    if (post.salary) {
+                        return <TeacherSalaryTile key={post.id} post={post} />;
+                    } else return <TeacherRecommendationTile key={post.id} post={post} />;
+                })}
+        </React.Fragment>
+    );
 };
 
 export default TeacherPosts;

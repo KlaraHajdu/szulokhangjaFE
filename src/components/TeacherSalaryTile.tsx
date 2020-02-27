@@ -11,7 +11,7 @@ const TeacherSalaryTile: React.FC<Props> = ({ post }) => {
     <div className="tile is-parent box is-vertical is-size-7">
       <div
         className="tile is-parent  is-size-7"
-        style={{ backgroundColor: "rgba(117, 190, 218, 0.1)" }}
+        style={{ backgroundColor: "rgba(201, 38, 38, 0.8)" }}
       >
         <div className="tile is-child">
           <p>{post.location}</p>
