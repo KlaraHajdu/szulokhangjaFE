@@ -33,7 +33,7 @@ const ParentFilterChecks: React.FC<Props> = () => {
                         checked={parentFilters.personalPositive}
                         onChange={handleChangeIsPersonalPositiveSelected}
                         value="IsPersonalPositive"
-                        color="primary"
+                        color="secondary"
                     />
                 }
                 label="Személyi feltételek"
@@ -47,7 +47,7 @@ const ParentFilterChecks: React.FC<Props> = () => {
                         checked={parentFilters.personalNegative}
                         onChange={handleChangeIsPersonalNegativeSelected}
                         value="IsPersonalNegative"
-                        color="primary"
+                        color="secondary"
                     />
                 }
                 label="Személyi feltételek"
@@ -59,7 +59,7 @@ const ParentFilterChecks: React.FC<Props> = () => {
                         checked={parentFilters.materialNegative}
                         onChange={handleChangeIsMaterialNegativeSelected}
                         value="IsMaterialNegative"
-                        color="primary"
+                        color="secondary"
                     />
                 }
                 label="Tárgyi feltételek"
