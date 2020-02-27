@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, Fragment } from "react";
 import HungaryCountyMap from "./HungaryCountyMap";
 import { ParentPostContext } from "./ParentPostProvider";
 import Typography from "@material-ui/core/Typography";
+import { Paper } from "@material-ui/core";
 
 interface Props {}
 
@@ -9,8 +10,10 @@ const IndexBody: React.FC<Props> = () => {
     const [parentPosts, setParentPosts] = useContext(ParentPostContext);
 
     return (
-        <div>
-            <HungaryCountyMap />
+        <Fragment>
+            <Paper>
+                <HungaryCountyMap />
+            </Paper>
             {parentPosts &&
                 parentPosts.map((post: any) => {
                     return (
@@ -19,7 +22,7 @@ const IndexBody: React.FC<Props> = () => {
                         </Typography>
                     );
                 })}
-        </div>
+        </Fragment>
     );
 };
 

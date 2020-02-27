@@ -99,7 +99,7 @@ function HungaryCountyMap(props) {
                 setviewPort({
                     latitude: setLatitudeBoundaries(viewPort.latitude, viewPort.zoom),
                     longitude: setLongitudeBoundaries(viewPort.longitude, viewPort.zoom),
-                    width: "100vw",
+                    width: "99vw",
                     height: "90vh",
                     zoom: setZoom(viewPort.zoom)
                 });
