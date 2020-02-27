@@ -54,7 +54,7 @@ const DateBarChart = ({ data /* see data tab */ }) => (
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: "Bejelentések száma",
+            legend: "",
             legendPosition: "middle",
             legendOffset: 32
         }}
@@ -62,7 +62,7 @@ const DateBarChart = ({ data /* see data tab */ }) => (
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: "",
+            legend: "Bejelentések száma",
             legendPosition: "middle",
             legendOffset: -40
         }}

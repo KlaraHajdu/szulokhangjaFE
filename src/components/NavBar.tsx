@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
-import amber from "@material-ui/core/colors/amber";
+import DropDownMenu from "./DropDownMenu";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -54,11 +54,7 @@ const NavBar = () => {
                             Bejelentések
                         </Button>
                     </Link>
-                    <Link to="/teacher-post">
-                        <Button color="secondary" variant="contained" style={{ color: "#ffffff" }}>
-                            Új bejelentés
-                        </Button>
-                    </Link>
+                    <DropDownMenu />
                 </Toolbar>
             </AppBar>
         </div>
