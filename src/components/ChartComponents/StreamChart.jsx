@@ -7,8 +7,8 @@ import { ResponsiveStream } from "@nivo/stream";
 // you'll often use just a few of them.
 const StreamChart = ({ data /* see data tab */ }) => (
   <ResponsiveStream
-    data={data}
-    keys={["Raoul", "Josiane", "Marcel", "René", "Paul", "Jacques"]}
+    data={data[0]}
+    keys={data[1]}
     margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
     axisTop={null}
     axisRight={null}

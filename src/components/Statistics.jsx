@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import StreamChart from "./ChartComponents/StreamChart";
-import BarChart from "./ChartComponents/BarChart";
+import DateBarChart from "./ChartComponents/DateBarChart";
 import { Link, useParams } from "react-router-dom";
 import { ParentPostContext } from "./ParentPostProvider";
 import {
@@ -10,7 +10,7 @@ import {
   teacherSalPostsRoute
 } from "../static/util/util";
 import { dataMaker } from "../static/util/dataFormatter";
-import _ from "lodash";
+
 
 let testdata = [
   {
@@ -87,21 +87,10 @@ let testdata = [
   }
 ];
 
-let testdata2 = [
-  {
-    country: "AD",
-    "hot dog": 180,
-
-
-  },
-  {
-    country: "AE",
-    "hot dog": 109,
-
-  }
-];
 
 function Statistics() {
+
+
   const { id } = useParams();
 
   const [teacherSalaries, setteacherSalaries] = useState([]);
@@ -133,19 +122,21 @@ function Statistics() {
   }, []);
 
   let total = [...teacherSalaries,...teacherRecommendations,...parentPst]
+  console.log(dataMaker("1",total))
 
   dataMaker("3",total)
 
   let renderStat = id => {
     switch (id) {
       case "1":
-        return <StreamChart data={testdata}></StreamChart>;
+        return <StreamChart data={dataMaker("1",total)}></StreamChart>;
         break;
       case "2":
-        return <BarChart data={testdata2}></BarChart>;
+        return <DateBarChart data={dataMaker("2",total)}></DateBarChart>;
         break;
       case "3":
-        return <BarChart data={dataMaker("3",total)}></BarChart>
+        return <DateBarChart data={dataMaker("3",total)}></DateBarChart>
+        break;
       default:
         return null;
     }
@@ -161,6 +152,10 @@ function Statistics() {
 
           <a href="/statistics/2" className="button is-link is-fullwidth">
             2
+          </a>
+
+          <a href="/statistics/3" className="button is-link is-fullwidth">
+            3
           </a>
         </div>
       </div>

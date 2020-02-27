@@ -15,17 +15,17 @@ export function dataMaker(graphType, dataset = []) {
 }
 
 function barPrepperLocation(dataset) {
-  console.log(dataset);
   let keys = dataset.map(data => data.location).filter(onlyUnique);
-  let values = dataset.length;
 
-  let grouped = dataset.reduce((accumulator, itrtr) => {
-    accumulator[itrtr.location] = accumulator[itrtr.location] + 1 || 1;
-    return accumulator;
-  }, {});
-  console.log("keys");
-  console.log(grouped);
-  return "barprep";
+  let reslt = [];
+  for (let key of keys) {
+    reslt.push({
+      date: key,
+      Submissions: dataset.map(data => data.location).filter(x => x === key)
+        .length
+    });
+  }
+  return reslt;
 }
 
 function barPrepperTime(dataset) {
@@ -46,22 +46,40 @@ function barPrepperTime(dataset) {
         .filter(x => x === key).length
     });
   }
-
-  console.log(reslt);
-  // let values = dataset.length;
-
-  // let grouped = dataset.reduce((accumulator, itrtr) => {
-  //   let date = (new Date(itrtr.submissionDate)).toDateString();
-  //   accumulator["date"] = [accumulator[date] =  accumulator[date] + 1 || 1]
-  //   return accumulator;
-  // }, {});
-
   return reslt;
 }
 
 function streamPrepper(dataset) {
-  console.log(dataset);
-  return "streamprep";
+  let reslt = [];
+
+  let timePeriods = dataset
+    .map(data => data.submissionDate)
+    .map(date => new Date(Date.parse(date)))
+    .map(date2 => date2.toDateString())
+    .filter(onlyUnique);
+
+  let allLocations = dataset.map(data => data.location).filter(onlyUnique);
+
+  for (let time of timePeriods) {
+    reslt.push(parser(time));
+  }
+  function parser(time) {
+    let objkt = {};
+
+    for (let loc of allLocations) {
+      objkt[loc] = dataset.filter(
+        x =>
+          new Date(Date.parse(x.submissionDate)).toDateString() === time &&
+          x.location === loc
+      ).length;
+    }
+
+    return objkt;
+  }
+
+  let final = [reslt, allLocations];
+
+  return final;
 }
 
 function onlyUnique(value, index, self) {

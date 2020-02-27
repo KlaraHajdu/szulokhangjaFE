@@ -5,7 +5,7 @@ import { ResponsiveBar } from "@nivo/bar";
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
-const BarChart = ({ data /* see data tab */ }) => (
+const DateBarChart = ({ data /* see data tab */ }) => (
   <ResponsiveBar
     data={data}
     keys={["Submissions"]}
@@ -54,7 +54,7 @@ const BarChart = ({ data /* see data tab */ }) => (
       tickSize: 5,
       tickPadding: 5,
       tickRotation: 0,
-      legend: "country",
+      legend: "Posztok Szama",
       legendPosition: "middle",
       legendOffset: 32
     }}
@@ -99,4 +99,4 @@ const BarChart = ({ data /* see data tab */ }) => (
   />
 );
 
-export default BarChart;
+export default DateBarChart;
