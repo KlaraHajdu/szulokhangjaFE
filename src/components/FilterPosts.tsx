@@ -67,6 +67,7 @@ const FilterPosts: React.FC<Props> = () => {
                                     checked={parent.IsParentSelected}
                                     onChange={handleParentChange()}
                                     value="IsParentSelected"
+                                    color="secondary"
                                 />
                             }
                             label="Szülők posztjai"
@@ -77,6 +78,7 @@ const FilterPosts: React.FC<Props> = () => {
                                     checked={teacher.IsTeacherSelected}
                                     onChange={handleTeacherChange()}
                                     value="IsTeacherSelected"
+                                    color="secondary"
                                 />
                             }
                             label="Tanárok posztjai"
