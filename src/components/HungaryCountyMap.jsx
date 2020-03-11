@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 import { mapBoxApiToken, apiGet, parentPostsRoute, teacherRecPostsRoute } from "../static/util/util";
 import * as counties from "../static/geojson/countiesGeo.json";
@@ -6,19 +6,22 @@ import { ParentPostContext } from "./ParentPostProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSchool } from "@fortawesome/free-solid-svg-icons";
 import { TeacherRecommendationContext } from "./TeacherRecommendationProvider";
+import { LocationFilterContext } from "./LocationFilterProvider";
+import { Link } from "react-router-dom";
 
-function HungaryCountyMap(props) {
+const HungaryCountyMap = props => {
     const [viewPort, setviewPort] = useState({
         latitude: 47.1013467403556,
         longitude: 19.210350283613785,
-        width: "50em",
-        height: "50em",
+        width: "99vw",
+        height: "90vh",
         zoom: 6.5,
         pitch: 20
     });
 
     const [parentPosts, setParentPosts] = useContext(ParentPostContext);
     const [teacherRecs, setTeacherRecs] = useContext(TeacherRecommendationContext);
+    const [locationFilter, setLocationFilter] = useContext(LocationFilterContext);
 
     useEffect(() => {
         const fetch = () => {
@@ -30,7 +33,7 @@ function HungaryCountyMap(props) {
             });
         };
         fetch();
-    }, [parentPosts, setParentPosts]);
+    }, []);
 
     const getNumberOfPostForRegion = region => {
         let numberOfPosts = 0;
@@ -114,18 +117,22 @@ function HungaryCountyMap(props) {
                         latitude={county.geometry.coordinates[1]}
                         longitude={county.geometry.coordinates[0]}
                     >
-                        <div className="marker-container">
+                        <Link
+                            to="/filter"
+                            className="marker-container"
+                            onClick={() => setLocationFilter(county.properties.name)}
+                        >
                             <a className="icon has-text-danger is-large has text-centered">
                                 <FontAwesomeIcon icon={faSchool} size="2x"></FontAwesomeIcon>
                             </a>
                             <p className="has-text-danger is-large has-text-weight-bold has-text-centered">
                                 {getNumberOfPostForRegion(county.properties.name)}
                             </p>
-                        </div>
+                        </Link>
                     </Marker>
                 ))}
         </ReactMapGL>
     );
-}
+};
 
 export default HungaryCountyMap;

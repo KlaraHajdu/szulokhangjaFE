@@ -5,6 +5,7 @@ import ParentPostTile from "./ParentPostTile";
 import { ParentPostContext } from "./ParentPostProvider";
 import Typography from "@material-ui/core/Typography";
 import { ParentFilterContext } from "./ParentFilterProvider";
+import { LocationFilterContext } from "./LocationFilterProvider";
 
 interface Props {}
 
@@ -13,6 +14,9 @@ const ParentPosts: React.FC<Props> = () => {
 
     const [parentFilters, setParentFilters] = useContext(ParentFilterContext);
 
+    const [locationFilters, setLocationFilters] = useContext(LocationFilterContext);
+
+    /*
     useEffect(() => {
         const fetch = (): void => {
             apiGet(parentPostsRoute + "listall", (jsonResponse: any) => {
@@ -22,25 +26,29 @@ const ParentPosts: React.FC<Props> = () => {
         fetch();
     }, [setParentPosts]);
 
+    */
+
     let filteredPosts: any = [];
 
     console.log(parentPosts);
+    console.log(locationFilters);
     for (var key in parentPosts) {
-        // console.log(key);
-        // console.log(parentPosts[key]);
         var current = parentPosts[key];
+
         if (
             (parentFilters.personalPositive === true &&
                 current.positiveMessage === true &&
-                current.commentType === "PERSONAL") ||
+                current.commentType === "PERSONAL" &&
+                (locationFilters === "all" || current.location === locationFilters)) ||
             (parentFilters.materialNegative === true &&
                 current.positiveMessage === false &&
-                current.commentType === "MATERIAL") ||
+                current.commentType === "MATERIAL" &&
+                (locationFilters === "all" || current.location === locationFilters)) ||
             (parentFilters.personalNegative === true &&
                 current.positiveMessage === false &&
-                current.commentType === "PERSONAL")
+                current.commentType === "PERSONAL" &&
+                (locationFilters === "all" || current.location === locationFilters))
         ) {
-            console.log(current);
             filteredPosts.push(parentPosts[key]);
         }
     }
@@ -56,7 +64,6 @@ const ParentPosts: React.FC<Props> = () => {
     function filterFunc(element: { positiveMessage: boolean }, index: any, array: any) {
         return element.positiveMessage === true;
     }
-    console.log(parentPosts);
     // var testFiltered = parentPosts.filter(filterFunc); // undefined-nak látja már ebben a sorban. az előző sorból még ki tudta írni.....
     // console.log(testFiltered);
     // const filterTest = parentPosts.filter(key:(any: any) => parentPosts[key].positiveMessage === true);

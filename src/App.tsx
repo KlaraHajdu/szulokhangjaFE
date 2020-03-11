@@ -9,6 +9,7 @@ import { ParentPostProvider } from "./components/ParentPostProvider";
 import { TeacherRecommendationProvider } from "./components/TeacherRecommendationProvider";
 import { ParentFilterProvider } from "./components/ParentFilterProvider";
 import { TeacherFilterProvider } from "./components/TeacherFilterProvider";
+import { LocationFilterProvider } from "./components/LocationFilterProvider";
 import Statistics from "./components/Statistics";
 import LoginPage from "./components/LoginPage";
 import { MuiThemeProvider, createMuiTheme, PaletteColorOptions } from "@material-ui/core";
@@ -29,21 +30,23 @@ const App: React.FC = () => {
             <Router>
                 <div className="App">
                     <ParentFilterProvider>
-                        <TeacherFilterProvider>
-                            <ParentPostProvider>
-                                <TeacherRecommendationProvider>
-                                    <PageTitle />
-                                    <Switch>
-                                        <Route path="/" exact component={IndexBody} />
-                                        <Route path="/parent-post" exact component={ParentPostForm} />
-                                        <Route path="/teacher-post" exact component={TeacherRecommendationForm} />
-                                        <Route path="/login" exact component={LoginPage} />
-                                        <Route path="/filter" component={FilterPosts} />
-                                        <Route path="/statistics/:id" component={Statistics} />
-                                    </Switch>
-                                </TeacherRecommendationProvider>
-                            </ParentPostProvider>
-                        </TeacherFilterProvider>
+                        <LocationFilterProvider>
+                            <TeacherFilterProvider>
+                                <ParentPostProvider>
+                                    <TeacherRecommendationProvider>
+                                        <PageTitle />
+                                        <Switch>
+                                            <Route path="/" exact component={IndexBody} />
+                                            <Route path="/parent-post" exact component={ParentPostForm} />
+                                            <Route path="/teacher-post" exact component={TeacherRecommendationForm} />
+                                            <Route path="/login" exact component={LoginPage} />
+                                            <Route path="/filter" component={FilterPosts} />
+                                            <Route path="/statistics/:id" component={Statistics} />
+                                        </Switch>
+                                    </TeacherRecommendationProvider>
+                                </ParentPostProvider>
+                            </TeacherFilterProvider>
+                        </LocationFilterProvider>
                     </ParentFilterProvider>
                 </div>
             </Router>

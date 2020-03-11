@@ -5,6 +5,7 @@ import TeacherSalaryTile from "./TeacherSalaryTile";
 import TeacherRecommendationTile from "./TeacherRecommendationTile";
 import Typography from "@material-ui/core/Typography";
 import { TeacherFilterContext } from "./TeacherFilterProvider";
+import { LocationFilterContext } from "./LocationFilterProvider";
 
 interface Props {}
 
@@ -13,6 +14,7 @@ const TeacherPosts: React.FC<Props> = props => {
     const [teacherRecommendations, setteacherRecommendations] = useState();
 
     const [teacherFilters, setTeacherFilters] = useContext(TeacherFilterContext);
+    const [locationFilters, setlocationFilters] = useContext(LocationFilterContext);
 
     useEffect(() => {
         const fetch = (): void => {
@@ -29,11 +31,18 @@ const TeacherPosts: React.FC<Props> = props => {
     let allTypePosts: any = [];
 
     for (let key in teacherSalaries) {
-        if (teacherFilters.salary === true) allTypePosts.push(teacherSalaries[key]);
+        let current = teacherSalaries[key];
+        if (teacherFilters.salary === true && (locationFilters === "all" || current.location === locationFilters))
+            allTypePosts.push(current);
     }
 
     for (let key in teacherRecommendations) {
-        if (teacherFilters.recommendation === true) allTypePosts.push(teacherRecommendations[key]);
+        let current = teacherRecommendations[key];
+        if (
+            teacherFilters.recommendation === true &&
+            (locationFilters === "all" || current.location === locationFilters)
+        )
+            allTypePosts.push(current);
     }
 
     return (
