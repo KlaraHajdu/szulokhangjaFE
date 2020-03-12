@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78e116f0-79c1-4d37-86a4-d18589e8f093" name="Default Changelist" comment="Changed county select values to not include the word &quot;megye&quot; as previously discussed." />
+    <list default="true" id="78e116f0-79c1-4d37-86a4-d18589e8f093" name="Default Changelist" comment="Changed county select values to not include the word &quot;megye&quot; as previously discussed.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.szulokhangjaFE.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.szulokhangjaFE.dir/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +23,7 @@
       <list>
         <option value="$PROJECT_DIR$/src/components/ParentPostForm.tsx" />
         <option value="$PROJECT_DIR$/src/components/TeacherRecommendationForm.tsx" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -38,6 +42,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.4" value="true" />
@@ -90,7 +95,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -101,9 +108,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="Changed county select values to not include the word &quot;megye&quot; as previously discussed." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1582826660383">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1584032277176">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582826660383" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584032277176" />
   </component>
 </project>
