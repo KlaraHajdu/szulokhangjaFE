@@ -7,8 +7,9 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import ParentFilterChecks from "./ParentFilterChecks";
 import TeacherFilterChecks from "./TeacherFilterChecks";
-import ParentPosts from "./ParentPosts";
-import TeacherPosts from "./TeacherPosts";
+import ParentPosts from "../ParentPosts";
+import TeacherPosts from "../TeacherPosts";
+import LocationFilter from "../Filters/LocationFilter";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -86,6 +87,8 @@ const FilterPosts: React.FC<Props> = () => {
                         <Divider variant="fullWidth" />
                         {parent.IsParentSelected && <ParentFilterChecks />}
                         {teacher.IsTeacherSelected && <TeacherFilterChecks />}
+                        <Divider variant="fullWidth" />
+                        <LocationFilter />
                         <Divider variant="fullWidth" />
                     </FormGroup>
                 </Grid>

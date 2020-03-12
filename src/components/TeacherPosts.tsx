@@ -1,32 +1,20 @@
-import React, { useState, useEffect, useContext } from "react";
-import { apiGet, teacherRecPostsRoute, teacherSalPostsRoute } from "../static/util/util";
+import React, { useContext } from "react";
 import { TeacherSalary, TeacherRecommendation } from "../static/util/dataInterfaces";
 import TeacherSalaryTile from "./TeacherSalaryTile";
 import TeacherRecommendationTile from "./TeacherRecommendationTile";
 import Typography from "@material-ui/core/Typography";
-import { TeacherFilterContext } from "./TeacherFilterProvider";
-import { LocationFilterContext } from "./LocationFilterProvider";
+import { TeacherFilterContext } from "./ContextProviders/TeacherFilterProvider";
+import { LocationFilterContext } from "./ContextProviders/LocationFilterProvider";
+import { TeacherSalaryContext } from "./ContextProviders/TeacherSalaryProvider";
+import { TeacherRecommendationContext } from "./ContextProviders/TeacherRecommendationProvider";
 
 interface Props {}
 
 const TeacherPosts: React.FC<Props> = props => {
-    const [teacherSalaries, setteacherSalaries] = useState();
-    const [teacherRecommendations, setteacherRecommendations] = useState();
-
+    const [teacherSalaries, setteacherSalaries] = useContext(TeacherSalaryContext);
+    const [teacherRecommendations, setteacherRecommendations] = useContext(TeacherRecommendationContext);
     const [teacherFilters, setTeacherFilters] = useContext(TeacherFilterContext);
     const [locationFilters, setlocationFilters] = useContext(LocationFilterContext);
-
-    useEffect(() => {
-        const fetch = (): void => {
-            apiGet(teacherSalPostsRoute + "listall", (jsonresponse: TeacherSalary[]) => {
-                setteacherSalaries(jsonresponse);
-            });
-            apiGet(teacherRecPostsRoute + "listall", (jsonresponse: TeacherRecommendation[]) => {
-                setteacherRecommendations(jsonresponse);
-            });
-        };
-        fetch();
-    }, []);
 
     let allTypePosts: any = [];
 
@@ -44,6 +32,9 @@ const TeacherPosts: React.FC<Props> = props => {
         )
             allTypePosts.push(current);
     }
+
+    console.log(teacherRecommendations);
+    console.log(teacherSalaries);
 
     return (
         <React.Fragment>

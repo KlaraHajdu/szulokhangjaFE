@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import { TeacherFilterContext } from "./TeacherFilterProvider";
+import { TeacherFilterContext } from "../ContextProviders/TeacherFilterProvider";
 
 interface Props {}
 
@@ -9,7 +9,10 @@ const TeacherFilterChecks: React.FC<Props> = () => {
     const [teacherFilters, setTeacherFilters] = useContext(TeacherFilterContext);
 
     const handleChangeIsRecommendationSelected = () => {
-        setTeacherFilters({ ...teacherFilters, recommendation: !teacherFilters.recommendation });
+        setTeacherFilters({
+            ...teacherFilters,
+            recommendation: !teacherFilters.recommendation
+        });
     };
 
     const handleChangeIsSalarySelected = () => {

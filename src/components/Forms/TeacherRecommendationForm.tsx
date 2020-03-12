@@ -1,8 +1,8 @@
 import React, { useRef, useContext, useState } from "react";
-import { apiPost, teacherRecPostsRoute } from "../static/util/util";
-import { TeacherRecommendation } from "../static/util/dataInterfaces";
+import { apiPost, teacherRecPostsRoute } from "../../static/util/util";
+import { TeacherRecommendation } from "../../static/util/dataInterfaces";
 import { Link } from "react-router-dom";
-import { TeacherRecommendationContext } from "./TeacherRecommendationProvider";
+import { TeacherRecommendationContext } from "../ContextProviders/TeacherRecommendationProvider";
 import FormControl from "@material-ui/core/FormControl";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
@@ -21,7 +21,6 @@ const TeacherRecommendationForm: React.FC = () => {
     const sendFormData = (data: TeacherRecommendation): void => {
         apiPost(teacherRecPostsRoute + "add", data, (response: TeacherRecommendation) => {
             setTeacherRecommendations((previousPosts: TeacherRecommendation[]) => [...previousPosts, response]);
-            console.log(response);
         });
     };
 

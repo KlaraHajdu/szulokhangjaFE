@@ -3,7 +3,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
-import { ParentFilterContext } from "./ParentFilterProvider";
+import { ParentFilterContext } from "../ContextProviders/ParentFilterProvider";
 
 interface Props {}
 

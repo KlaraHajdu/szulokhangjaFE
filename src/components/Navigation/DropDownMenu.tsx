@@ -73,7 +73,7 @@ export default function DropDownMenu() {
                     </Link>
                 </StyledMenuItem>
                 <StyledMenuItem>
-                    <Link to="/teacher-post" style={{ textDecoration: "none" }} >
+                    <Link to="/teacher-post" style={{ textDecoration: "none" }}>
                         <ListItemText primary="Tanár vagyok" />
                     </Link>
                 </StyledMenuItem>

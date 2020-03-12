@@ -1,6 +1,6 @@
 import React, { useContext, Fragment } from "react";
 import HungaryCountyMap from "./HungaryCountyMap";
-import { ParentPostContext } from "./ParentPostProvider";
+import { ParentPostContext } from "./ContextProviders/ParentPostProvider";
 import Typography from "@material-ui/core/Typography";
 import { Paper } from "@material-ui/core";
 

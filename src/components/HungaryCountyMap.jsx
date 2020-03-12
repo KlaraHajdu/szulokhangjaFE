@@ -1,13 +1,20 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
-import { mapBoxApiToken, apiGet, parentPostsRoute, teacherRecPostsRoute } from "../static/util/util";
+import {
+    mapBoxApiToken,
+    apiGet,
+    parentPostsRoute,
+    teacherRecPostsRoute,
+    teacherSalPostsRoute
+} from "../static/util/util";
 import * as counties from "../static/geojson/countiesGeo.json";
-import { ParentPostContext } from "./ParentPostProvider";
+import { ParentPostContext } from "./ContextProviders/ParentPostProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSchool } from "@fortawesome/free-solid-svg-icons";
-import { TeacherRecommendationContext } from "./TeacherRecommendationProvider";
-import { LocationFilterContext } from "./LocationFilterProvider";
+import { TeacherRecommendationContext } from "./ContextProviders/TeacherRecommendationProvider";
+import { LocationFilterContext } from "./ContextProviders/LocationFilterProvider";
 import { Link } from "react-router-dom";
+import { TeacherSalaryContext } from "./ContextProviders/TeacherSalaryProvider";
 
 const HungaryCountyMap = props => {
     const [viewPort, setviewPort] = useState({
@@ -21,6 +28,7 @@ const HungaryCountyMap = props => {
 
     const [parentPosts, setParentPosts] = useContext(ParentPostContext);
     const [teacherRecs, setTeacherRecs] = useContext(TeacherRecommendationContext);
+    const [teacherSalaries, setteacherSalaries] = useContext(TeacherSalaryContext);
     const [locationFilter, setLocationFilter] = useContext(LocationFilterContext);
 
     useEffect(() => {
@@ -31,6 +39,10 @@ const HungaryCountyMap = props => {
             apiGet(teacherRecPostsRoute + "listall", jsonresponse => {
                 setTeacherRecs(jsonresponse);
             });
+            apiGet(teacherSalPostsRoute + "listall", jsonResponse => {
+                setteacherSalaries(jsonResponse);
+                console.log(teacherSalaries);
+            });
         };
         fetch();
     }, []);
@@ -39,13 +51,28 @@ const HungaryCountyMap = props => {
         let numberOfPosts = 0;
 
         for (let i = 0; i < parentPosts.length; i++) {
-            if (parentPosts[i].location === region) {
+            if (
+                parentPosts[i].location === region ||
+                (parentPosts[i].location === "Budapest" && region === "Pest megye")
+            ) {
                 numberOfPosts++;
             }
         }
 
         for (let i = 0; i < teacherRecs.length; i++) {
-            if (teacherRecs[i].location === region) {
+            if (
+                teacherRecs[i].location === region ||
+                (teacherRecs[i].location === "Budapest" && region === "Pest megye")
+            ) {
+                numberOfPosts++;
+            }
+        }
+
+        for (let i = 0; i < teacherSalaries.length; i++) {
+            if (
+                teacherSalaries[i].location === region ||
+                (teacherSalaries[i].location === "Budapest" && region === "Pest megye")
+            ) {
                 numberOfPosts++;
             }
         }
@@ -66,7 +93,6 @@ const HungaryCountyMap = props => {
     };
 
     const setLatitudeBoundaries = (latitude, zoom) => {
-        console.log(zoom);
         if (zoom > 6.7) {
             if (latitude > 48.27440611924083) {
                 return 48.27440611924083;
@@ -111,6 +137,7 @@ const HungaryCountyMap = props => {
         >
             {parentPosts &&
                 teacherRecs &&
+                teacherSalaries &&
                 counties.features.map(county => (
                     <Marker
                         key={county.properties.id}
@@ -119,12 +146,11 @@ const HungaryCountyMap = props => {
                     >
                         <Link
                             to="/filter"
-                            className="marker-container"
+                            className="marker-container icon has-text-danger is-large has-text-centered"
                             onClick={() => setLocationFilter(county.properties.name)}
                         >
-                            <a className="icon has-text-danger is-large has text-centered">
-                                <FontAwesomeIcon icon={faSchool} size="2x"></FontAwesomeIcon>
-                            </a>
+                            <FontAwesomeIcon icon={faSchool} size="2x"></FontAwesomeIcon>
+
                             <p className="has-text-danger is-large has-text-weight-bold has-text-centered">
                                 {getNumberOfPostForRegion(county.properties.name)}
                             </p>

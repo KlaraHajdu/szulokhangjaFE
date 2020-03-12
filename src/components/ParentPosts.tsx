@@ -2,10 +2,10 @@ import React, { useEffect, useContext } from "react";
 import { apiGet, parentPostsRoute } from "../static/util/util";
 import { ParentPost } from "../static/util/dataInterfaces";
 import ParentPostTile from "./ParentPostTile";
-import { ParentPostContext } from "./ParentPostProvider";
+import { ParentPostContext } from "./ContextProviders/ParentPostProvider";
 import Typography from "@material-ui/core/Typography";
-import { ParentFilterContext } from "./ParentFilterProvider";
-import { LocationFilterContext } from "./LocationFilterProvider";
+import { ParentFilterContext } from "./ContextProviders/ParentFilterProvider";
+import { LocationFilterContext } from "./ContextProviders/LocationFilterProvider";
 
 interface Props {}
 
@@ -29,9 +29,6 @@ const ParentPosts: React.FC<Props> = () => {
     */
 
     let filteredPosts: any = [];
-
-    console.log(parentPosts);
-    console.log(locationFilters);
     for (var key in parentPosts) {
         var current = parentPosts[key];
 

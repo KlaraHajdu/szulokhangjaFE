@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import { apiPost, parentPostsRoute } from "../static/util/util";
-import { ParentPost } from "../static/util/dataInterfaces";
+import { apiPost, parentPostsRoute } from "../../static/util/util";
+import { ParentPost } from "../../static/util/dataInterfaces";
 import { Link } from "react-router-dom";
-import { ParentPostContext } from "./ParentPostProvider";
+import { ParentPostContext } from "../ContextProviders/ParentPostProvider";
 import FormControl from "@material-ui/core/FormControl";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";

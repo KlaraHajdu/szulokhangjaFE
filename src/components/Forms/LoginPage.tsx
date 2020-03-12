@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { apiPost, loginRoute } from "../static/util/util";
+import { apiPost, loginRoute } from "../../static/util/util";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
