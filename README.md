@@ -17,11 +17,11 @@ In order to run the website:
 - Check if port for backend API hosting matches with what is specified in static/util/util.js
 
 
-Libraries used:
+Main libraries used:
 
 - [React MapGL](https://uber.github.io/react-map-gl/) and [Mapbox](https://www.mapbox.com/) for the map displayed on the frontpage.
-- nivo.rocks used to display data in various graph/chart components.
-- Material UI and Bulma for styling.
+- [nivo](https://nivo.rocks/) used to display data in various graph/chart components.
+- [Material UI](https://material-ui.com/) and [Bulma](https://bulma.io/) for styling.
 
 
 
