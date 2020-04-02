@@ -12,7 +12,7 @@ In order to run the website:
 
 - Please download the backend API from (and follow readme.md) :
 - As this project is a work in progress the latest working version can be found on the development branch
-- Install dependencies : run  `npm install' from project root.
+- Install dependencies : run  `npm install` from project root.
 - Run the npm server:  `npm start`
 - Check if port for backend API hosting matches with what is specified in static/util/util.js
 
