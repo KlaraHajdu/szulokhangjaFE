@@ -10,7 +10,7 @@ Goals of the site:
 
 In order to run the website:
 
-- Please download the backend API from (and follow readme.md) :
+- Please download the backend API from (and follow readme.md) : https://github.com/DanielZsk/SzulokHangjaBE
 - As this project is a work in progress the latest working version can be found on the development branch
 - Install dependencies : run  `npm install` from project root.
 - Run the development server with:  `npm start`
