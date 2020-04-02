@@ -14,7 +14,7 @@ In order to run the website:
 - As this project is a work in progress the latest working version can be found on the development branch
 - Install dependencies : run  `npm install` from project root.
 - Run the development server with:  `npm start`
-- Check if port for backend API hosting matches with what is specified in static/util/util.js
+- Check if port for backend API hosting matches with what is specified in static/util/util.js. The default IIS port is used.
 
 
 Main libraries used:
