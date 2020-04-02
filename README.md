@@ -19,7 +19,7 @@ In order to run the website:
 
 Libraries used:
 
-- React MapGL and Mapbox for the map displayed on the frontpage.
+- [React MapGL](https://uber.github.io/react-map-gl/) and [Mapbox](https://www.mapbox.com/) for the map displayed on the frontpage.
 - nivo.rocks used to display data in various graph/chart components.
 - Material UI and Bulma for styling.
 
