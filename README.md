@@ -1,3 +1,30 @@
+## Szülők Hangja (Voice of the parents')
+
+
+Goals of the site:
+
+- Give a forum for parents and teachers to post their experience with the education system in Hungary.
+- Display comments, suggestions and action-items from parents and teachers about the school system in Hungary.
+- Display collected comments as data - positive/negative ratio, regional data - on a map and various other graphs and charts.
+
+
+In order to run the website:
+
+- Please download the backend API from (and follow readme.md) :
+- As this project is a work in progress the latest working version can be found on the development branch
+- Install dependencies : run ### `npm install' from project root.
+- Run the npm server: ### `npm start`
+- Check if port for backend API hosting matches with what is specified in static/util/util.js
+
+
+Libraries used:
+
+- React MapGL and Mapbox for the map displayed on the frontpage.
+- nivo.rocks used to display data in various graph/chart components.
+- Material UI and Bulma for styling.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
